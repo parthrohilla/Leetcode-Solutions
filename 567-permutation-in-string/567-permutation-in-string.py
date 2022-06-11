@@ -2,7 +2,6 @@ class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
         s1Map, s2Map = Counter(s1), {}
         
-        l = 0
         for r in range(len(s2)):
             if s2[r] in s1Map:
                 substring = s2[r:r + sum(s1Map.values())]
