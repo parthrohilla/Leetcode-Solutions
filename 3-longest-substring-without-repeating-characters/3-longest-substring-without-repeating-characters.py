@@ -8,9 +8,8 @@ class Solution:
                 charSet.remove(s[l])
                 l += 1
             
-            else:
-                charSet.add(s[r])
-                maxLength = max(maxLength, r-l+1)
-                r += 1
+            charSet.add(s[r])
+            maxLength = max(maxLength, r-l+1)
+            r += 1
         
         return maxLength
