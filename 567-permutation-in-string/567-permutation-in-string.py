@@ -1,6 +1,6 @@
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
-        s1Map, s2Map = Counter(s1), {}
+        s1Map = Counter(s1)
         
         for r in range(len(s2)):
             if s2[r] in s1Map:
