@@ -13,8 +13,9 @@ class Solution:
                 return False
         return True
     
+    
+    
     def inOrder(self, root):
         if not root:
             return []
-        
         return self.inOrder(root.left) + [root.val] + self.inOrder(root.right)
