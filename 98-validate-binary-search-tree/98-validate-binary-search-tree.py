@@ -6,22 +6,15 @@
 #         self.right = right
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
-        if root == None:
-            return True
+        output = self.inOrder(root)
         
-        return self.isValidBST(root.left) and self.isValidBST(root.right) and self.maxOf(root.left) < root.val and root.val < self.minOf(root.right)
-            
+        for i in range(len(output)-1):
+            if output[i]>=output[i+1]:
+                return False
+        return True
     
-    def maxOf(self, root) -> int:
+    def inOrder(self, root):
         if not root:
-            return -math.inf
+            return []
         
-        return max(max(self.maxOf(root.left), self.maxOf(root.right)), root.val)
-    
-    def minOf(self, root) -> int:
-        if not root:
-            return math.inf
-        
-        return min(min(self.minOf(root.left), self.minOf(root.right)), root.val)
-    
-            
+        return self.inOrder(root.left) + [root.val] + self.inOrder(root.right)
