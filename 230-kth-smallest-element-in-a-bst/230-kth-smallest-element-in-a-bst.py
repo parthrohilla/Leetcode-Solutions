@@ -7,7 +7,6 @@
 class Solution:
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
         output = self.inOrder(root, [])
-        print(output)
         return output[k-1]
     
     def inOrder(self, root, ans):
