@@ -13,7 +13,7 @@ class Solution:
             if l > q[0]:
                 q.popleft()
             # Adding to output
-            if (r+1) >= k:
+            if r >= k-1:
                 output.append(nums[q[0]])
                 l += 1
             
