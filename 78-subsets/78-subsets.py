@@ -1,17 +1,20 @@
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
+        output = []
         
-        def helper(nums):
-            if len(nums) == 0:
-                return [[]]
-                       
-            output = []
-            small = helper(nums[1:])
-            for x in small:
-                output.append(x)
-                output.append([nums[0]] + x)
+        subset = []
+        def dfs(index):
+            if index == len(nums):
+                output.append(subset.copy())
+                return
             
-            return output
+            #include
+            subset.append(nums[index])
+            dfs(index+1)
+            
+            #exclude
+            subset.pop()
+            dfs(index+1)
         
-        return helper(nums)
-            
+        dfs(0)
+        return output
