@@ -4,7 +4,7 @@ class Solution:
         
         def dfs(index, subset, total):
             if total == target:
-                output.append(subset.copy())
+                output.append(subset)
                 return
             
             if index >= len(candidates) or total > target:
