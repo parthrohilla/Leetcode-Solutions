@@ -5,8 +5,8 @@ class Solution:
         k = r
         while l<=r:
             mid = int((l+r)/2)
-            tempAns = self.helper(piles, mid)
-            if tempAns <= h:
+            hours = self.helper(piles, mid)
+            if hours <= h:
                 k = min(k, mid)
                 r = mid-1
             else:
