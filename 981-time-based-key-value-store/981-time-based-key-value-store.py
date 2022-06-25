@@ -10,18 +10,22 @@ class TimeMap:
             self.store[key].append([value, timestamp])
 
     def get(self, key: str, timestamp: int) -> str:
-        res = ""
         values = self.store.get(key, [])
         
-        l, r = 0, len(values)-1
-        while l<=r:
-            mid = (l+r) // 2
-            if values[mid][1] <= timestamp:
-                res = values[mid][0]
-                l = mid + 1
+        # l, r = 0, len(values)-1
+        # while l<=r:
+        #     mid = (l+r) // 2
+        #     if values[mid][1] <= timestamp:
+        #         res = values[mid][0]
+        #         l = mid + 1
+        #     else:
+        #         r = mid-1
+        for i in range(len(values)-1, -1, -1):
+            if values[i][1] > timestamp:
+                continue
             else:
-                r = mid-1
-        return res
+                return values[i][0]
+        return ""
             
 
 
