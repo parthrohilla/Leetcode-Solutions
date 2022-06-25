@@ -11,16 +11,14 @@ class Solution:
             slow = slow.next
             fast = fast.next.next
         
-        temp = self.reverse(slow.next)
+        l1, l2 = head, self.reverse(slow.next)
         slow.next = None
-        
-        l1, l2 = head, temp
         
         flag = 0
         dummy = ListNode()
         x = dummy
         while l1 and l2:
-            if flag%2 == 0:
+            if flag % 2 == 0:
                 x.next = l1
                 l1 = l1.next
             else:
@@ -33,6 +31,7 @@ class Solution:
             x.next = l1
         else:
             x.next = l2
+            
         return dummy.next
     
     def reverse(self, head):
