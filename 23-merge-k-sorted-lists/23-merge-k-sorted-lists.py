@@ -7,13 +7,19 @@ class Solution:
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
         if len(lists)==0:
             return None
-        if len(lists)==1:
+        if len(lists) == 1:
             return lists[0]
         
-        l1 = lists[0]
-        l2 = self.mergeKLists(lists[1:])
-        return self.merge(l1, l2)
-    
+        while len(lists) > 1:
+            temp = []
+            for i in range(0, len(lists), 2):
+                l1 = lists[i]
+                l2 = lists[i+1] if (i+1)<len(lists) else None
+                l3 = self.merge(l1, l2)
+                temp.append(l3)
+            lists = temp
+        return lists[0]
+                
     def merge(self, l1, l2):
         dummy = ListNode()
         tail = dummy
