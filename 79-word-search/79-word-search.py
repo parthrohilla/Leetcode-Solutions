@@ -1,28 +1,22 @@
 class Solution:
-    def dfs(self,board,index,recursionStack,word,i,j):
-        #we will do dfs from the index i,j in order to complete the word on the board
-        if index == len(word)-1:
+    def dfs(self, board: List[List[str]], word: str, i: int, j: int, visited: List[List[bool]], k: int) -> bool:
+        if k == len(word):
             return True
-        recursionStack.add((i,j))
-        result = False
-        if i > 0:
-            if (i-1,j) not in recursionStack and board[i-1][j] == word[index+1]:
-                result = result or self.dfs(board,index+1,recursionStack,word,i-1,j)
-        if i < len(board)-1:
-            if (i+1,j) not in recursionStack and board[i+1][j] == word[index+1]:
-                result = result or self.dfs(board,index+1,recursionStack,word,i+1,j)
-        if j > 0:
-            if (i,j-1) not in recursionStack and board[i][j-1] == word[index+1]:
-                result = result or self.dfs(board,index+1,recursionStack,word,i,j-1)
-        if j < len(board[0])-1:
-            if (i,j+1) not in recursionStack and board[i][j+1] == word[index+1]:
-                result = result or self.dfs(board,index+1,recursionStack,word,i,j+1)
-        recursionStack.remove((i,j))
-        return result
+        if i < 0 or i >= len(board) or j < 0 or j >= len(board[0]) or board[i][j] != word[k] or visited[i][j]: 
+            return False
+        visited[i][j] = True
+        res1 = self.dfs(board, word, i + 1, j, visited, k + 1)
+        res2 = self.dfs(board, word, i - 1, j, visited, k + 1)
+        res3 = self.dfs(board, word, i, j + 1, visited, k + 1)
+        res4 = self.dfs(board, word, i, j - 1, visited, k + 1)
+        visited[i][j] = False
+        return (res1 or res2 or res3 or res4)
+    
     def exist(self, board: List[List[str]], word: str) -> bool:
         for i in range(len(board)):
             for j in range(len(board[0])):
-                if board[i][j] == word[0]:
-                    if self.dfs(board,0,set({}),word,i,j):
-                        return True
+                visited = [[False for _ in range(len(board[0]))] for _ in range(len(board))]
+                k = 0
+                if self.dfs(board, word, i, j, visited, k):
+                    return True
         return False
