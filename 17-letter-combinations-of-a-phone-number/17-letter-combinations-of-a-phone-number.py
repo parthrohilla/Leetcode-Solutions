@@ -18,8 +18,7 @@ class Solution:
                 for char in num_pad[number[0]]:
                     temp.append(char)
                 return temp
-                
-                
+                         
             small = helper(number[1:])
             output = []
             for char in num_pad[number[0]]:
