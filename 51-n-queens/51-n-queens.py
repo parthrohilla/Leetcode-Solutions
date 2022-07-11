@@ -5,14 +5,8 @@ class Solution:
         output = []
 
         def backTrack(row):
-            # Base-Case
             if row == n:
-                temp = []
-                for i in range(n):
-                    column = ""
-                    for j in range(n):
-                        column += board[i][j]
-                    temp.append(column)
+                temp = ["".join(row) for row in board]
                 output.append(temp)
                 return
 
@@ -35,7 +29,7 @@ class Solution:
         backTrack(0)
         return output
 
-    def isNotSafe(self, col_set, pos_diagonal, neg_diagonal, row, col) -> bool:
+    def isNotSafe(self, col_set, pos_diagonal, neg_diagonal, row, col):
         if col in col_set or (row + col) in pos_diagonal or (row - col) in neg_diagonal:
             return True
         else:
