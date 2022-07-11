@@ -6,9 +6,9 @@ class Solution:
                 output.append(path)
                 return
 
-            for i in range(1, len(string) + 1):
-                if self.isPal(string[:i]):
-                    dfs(string[i:], path + [string[:i]])
+            for i in range(len(string)):
+                if self.isPal(string[:i+1]):
+                    dfs(string[i+1:], path + [string[:i+1]])
 
         output = []
         dfs(s, [])
