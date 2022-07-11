@@ -1,7 +1,6 @@
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         string_map = defaultdict(list)
-        
         for string in strs:
             count = [0 for _ in range(26)]
             for char in string:
