@@ -3,6 +3,7 @@ class Solution:
         n = len(nums)
         cache = {}
         
+        @lru_cache(None)
         def helper(index) -> int:
             if index >= n-1:
                 return 0
