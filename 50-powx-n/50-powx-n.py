@@ -8,7 +8,7 @@ class Solution:
                 return 1
             res = helper(x, n // 2)
             res = res * res
-            return res * x if n % 2 == 1 else res
+            return res * x if n % 2 else res
         
         if n < 0:
             return (1 / helper(x, abs(n)))
