@@ -1,19 +1,10 @@
 class Solution:
     def climbStairs(self, n: int) -> int:
-        memo= {}
-        
-        def helper(steps)->int:
-            if steps == 1:
-                return 1
-            if steps == 2:
-                return 2
-            if steps in memo:
-                return memo[steps]
+        dp = [0] * (n+1)
+        dp[0], dp[1] = 0, 1
+        if n>1: dp[2] = 2
             
-            small1 = helper(steps-1)
-            small2 = helper(steps-2)
-            memo[steps] = small1 + small2
-            return memo[steps]
-        
-        return helper(n)
+        for i in range(3, n+1):
+            dp[i] = dp[i-1] + dp[i-2]
+        return dp[n]
             
