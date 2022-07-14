@@ -1,10 +1,10 @@
 class Solution:
     def rob(self, nums: List[int]) -> int:
         dp = {}
-        self.n = len(nums)
+        n = len(nums)
 
         def helper(i):
-            if i >= self.n:
+            if i >= n:
                 return 0
             if i in dp:
                 return dp[i]
