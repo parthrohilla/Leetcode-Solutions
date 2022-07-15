@@ -1,19 +1,23 @@
 class Solution:
     def rob(self, nums: List[int]) -> int:
-        n = len(nums)
-        if n == 1:
+        # 1 house = 1 solution
+        if len(nums) == 1:
             return nums[0]
+        # rob all houses besides first to work around constraint
+        skip_first = self.rob_helper(nums[1:], 0, {})
+        # rob all houses besides last to work around constraint
+        skip_last = self.rob_helper(nums[:-1], 0, {})
+        return max(skip_first, skip_last)
         
-        memo = {}
-        @lru_cache(None)
-        def helper(i, robbedFirst):
-            if i>=n or (i==n-1 and robbedFirst):
-                return 0
-            if i in memo:
-                memo[i]
-            
-            memo[i] = max(nums[i] + helper(i+2, robbedFirst) , helper(i+1, robbedFirst))
-            return memo[i]
-            
-            
-        return max(helper(1, False),nums[0] + helper(2, True))
+    def rob_helper(self, houses, index, memo):
+        if index >= len(houses):
+            return 0
+        
+        if index not in memo:
+            # option 1: rob current house and skip next one
+            rob_current = houses[index] + self.rob_helper(houses, index + 2, memo)
+            # option 2: skip current house and rob next one
+            skip_current = self.rob_helper(houses, index + 1, memo)
+            memo[index] = max(rob_current, skip_current)
+        
+        return memo[index]
