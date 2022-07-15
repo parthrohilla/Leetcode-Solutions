@@ -15,4 +15,3 @@ class Solution:
         
         memo[i] = max(nums[i] + self.helper(i+2, nums, memo), self.helper(i+1, nums, memo))
         return memo[i]
-        
