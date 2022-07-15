@@ -5,7 +5,6 @@ class Solution:
         
         skip_first = self.helper(0, nums[1:], {})
         skip_last = self.helper(0, nums[:-1], {})
-        
         return max(skip_first, skip_last)
     
     def helper(self, i, nums, memo):
