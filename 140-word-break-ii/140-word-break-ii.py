@@ -4,8 +4,7 @@ class Solution:
         def dfs(string, current):
             if not string:
                 output.append(current[:-1])
-                return
-                
+                return     
             for i in range(len(string)):
                 left = string[:i+1]
                 if left in wordDict:
