@@ -4,7 +4,7 @@ class Solution:
         memo = {}
         
         def dfs(string) -> bool:
-            if len(string) == 0:
+            if not string:
                 return True
             if string in memo:
                 return memo[string]
