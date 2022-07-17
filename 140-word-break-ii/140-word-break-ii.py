@@ -1,15 +1,24 @@
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> List[str]:
-        output, wordDict = [], set(wordDict)
-        def dfs(string, current):
-            if not string:
-                output.append(current[:-1])
-                return     
+        wordDict = set(wordDict)
+        memo = defaultdict(list)
+        
+        def dfs(string) -> List[str]:
+            if string in memo:
+                return memo[string]
+            
+            res = []
             for i in range(len(string)):
                 left = string[:i+1]
                 if left in wordDict:
-                    dfs(string[i+1:], current + left + " ") 
-            return    
+                    if left == string:
+                        res.append(left)
+                    else:
+                        small = dfs(string[i+1:])
+                        for x in small:
+                            res.append(left + " " + x)                      
+            
+            memo[string] = res        
+            return res
         
-        dfs(s, "")
-        return output
+        return dfs(s)
