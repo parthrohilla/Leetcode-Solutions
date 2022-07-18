@@ -4,10 +4,7 @@ class Solution:
         
         def dfs(i, current):
             if i == n:
-                if current == target:
-                    return 1
-                else:
-                    return 0
+                return 1 if current == target else 0
             
             if (i, current) in memo:
                 return memo[(i, current)]
