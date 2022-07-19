@@ -11,9 +11,7 @@ class Solution:
             if (i, current) in memo:
                 return memo[(i, current)]
             
-            pick = dfs(i+1, current + s[i])
-            ignore = dfs(i+1, current)
-            memo[(i, current)] = pick + ignore
+            memo[(i, current)] = dfs(i+1, current + s[i]) + dfs(i+1, current)
             return memo[(i, current)]
         
         return dfs(0, "")
