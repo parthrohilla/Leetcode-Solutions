@@ -6,8 +6,10 @@ class Solution:
             while i < n and s[i] == " ":
                 i += 1
             j = i+1
+            
             while j < n and s[j] != " ":
                 j += 1
+            
             if i != n: res.append(s[i:j])
             i = j+1
         
