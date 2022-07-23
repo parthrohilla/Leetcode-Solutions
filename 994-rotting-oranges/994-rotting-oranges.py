@@ -19,13 +19,7 @@ class Solution:
 
                 for dr, dc in directions:
                     row, col = r + dr, c + dc
-                    # if in bounds and nonrotten, make rotten
-                    # and add to q
-                    if (
-                        row in range(len(grid))
-                        and col in range(len(grid[0]))
-                        and grid[row][col] == 1
-                    ):
+                    if row in range(len(grid)) and col in range(len(grid[0])) and grid[row][col] == 1:
                         grid[row][col] = 2
                         q.append((row, col))
                         fresh -= 1
