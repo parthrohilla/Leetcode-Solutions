@@ -15,5 +15,7 @@ class Solution:
                 if visited[vertex] == False:
                     q.append(vertex)
                     visited[vertex] = True
+                if destination in adj_list[u]:
+                    return True
         
         return visited[destination]
