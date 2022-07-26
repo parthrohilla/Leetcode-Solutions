@@ -3,7 +3,7 @@ class Solution:
         m,n = len(image), len(image[0])
         
         def fill(i, j):
-            if i<0 or i >= m or j <0 or j>= n or image[i][j] != current or image[i][j] == color:
+            if i < 0 or i >= m or j < 0 or j >= n or image[i][j] != current or image[i][j] == color:
                 return
             
             image[i][j] = color
