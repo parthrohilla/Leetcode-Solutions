@@ -12,14 +12,11 @@ class Solution:
             if src not in adj:
                 return False
             
-            
             for i, v in enumerate(adj[src]):
                 adj[src].pop(i)
                 res.append(v)
                 if dfs(v):
                     return True
-                
-                #Backtrack
                 adj[src].insert(i, v)
                 res.pop()
             return False
