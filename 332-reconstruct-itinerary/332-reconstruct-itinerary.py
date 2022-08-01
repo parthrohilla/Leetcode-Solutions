@@ -12,8 +12,8 @@ class Solution:
             if src not in adj:
                 return False
             
-            temp = adj[src]
-            for i, v in enumerate(temp):
+            
+            for i, v in enumerate(adj[src]):
                 adj[src].pop(i)
                 res.append(v)
                 if dfs(v):
