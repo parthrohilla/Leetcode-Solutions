@@ -8,6 +8,27 @@ class Solution:
             return 0
         count = 0
 
+        def sort(a, b):
+            temp = []
+            i, j = 0, 0
+            while i<len(a) and j <len(b):
+                if a[i] < b[j]:
+                    temp.append(a[i])
+                    i += 1
+                else:
+                    temp.append(b[j])
+                    j += 1
+            
+            if i < len(a):
+                temp = temp + a[i:]
+            
+            if j < len(b):
+                temp = temp + b[j:]
+            
+            return temp
+            
+            
+        
         def merge(nums):
             if len(nums) <= 1: 
                 return nums
@@ -22,7 +43,7 @@ class Solution:
                 else:
                     count += len(left) - l
                     r += 1
-            return sorted(left+right)
+            return sort(left, right)
 
         merge(nums)
         return count
