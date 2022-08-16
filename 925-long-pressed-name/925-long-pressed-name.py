@@ -10,7 +10,7 @@ class Solution:
             if name[i] == typed[j]:
                 i += 1
                 j += 1
-            elif i>0 and j>0 and typed[j] == typed[j-1]:
+            elif i>0 and j>0 and typed[j] == name[i-1]:
                 j += 1
             else:
                 return False
