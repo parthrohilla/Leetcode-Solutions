@@ -14,7 +14,7 @@ class Solution:
                 bucket[i].sort()
                 for word in bucket[i]:
                     if len(res) == k:
-                        break
+                        return res
                     else:
                         res.append(word)
                     
