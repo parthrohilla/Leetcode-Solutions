@@ -1,8 +1,4 @@
 class Solution:
     def minOperations(self, s: str) -> int:
-        count = 0
-        n = len(s)
-        for i in range(n):
-            if int(s[i]) != i % 2:
-                count += 1
-        return min(count, n-count)
+        res = sum([1 for i,char in enumerate(s) if i%2 != int(char)])
+        return min(res, len(s)-res)
