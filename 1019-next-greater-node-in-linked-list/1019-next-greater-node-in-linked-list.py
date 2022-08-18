@@ -17,13 +17,10 @@ class Solution:
         head = head.next
         while head:
             num = head.val
-            if num <= stack[-1][0]:
-                stack.append([num, i])
-            else:
-                while stack and num > stack[-1][0]:
-                    top = stack.pop()
-                    ans[top[1]] = num
-                stack.append([num, i])
+            while stack and num > stack[-1][0]:
+                top = stack.pop()
+                ans[top[1]] = num
+            stack.append([num, i])
             i += 1
             head = head.next
         return ans
