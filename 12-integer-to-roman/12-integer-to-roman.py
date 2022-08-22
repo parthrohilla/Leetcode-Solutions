@@ -20,7 +20,10 @@ class Solution:
         for char, value in symbol[::-1]:
             if num // value:
                 k = num // value
-                roman += char*k
+                temp = ""
+                for i in range(k):
+                    temp += char
+                roman += temp
                 num = num % value
         return roman
             
