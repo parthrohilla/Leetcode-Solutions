@@ -4,14 +4,13 @@ class Solution:
         visited = [0 for _ in range(len(graph))]
         
         def dfs(node, colour):
-            if visited[node] != 0:
+            if visited[node]:
                 return visited[node] == colour
             
             visited[node] = colour
             for n in graph[node]:
                 if not dfs(n, -1 * colour):
                     return False
-            
             return True
             
         
