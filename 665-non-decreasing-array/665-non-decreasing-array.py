@@ -7,7 +7,7 @@ class Solution:
                 continue
             elif nums[i] > nums[i+1] and not modification:
                 modification = True
-                if (i-1 >= 0 and nums[i-1] <= nums[i+1]) or i == 0:
+                if i == 0 or nums[i-1] <= nums[i+1]:
                     nums[i] = nums[i+1]
                 else:
                     nums[i+1] = nums[i]
