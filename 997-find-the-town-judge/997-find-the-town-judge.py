@@ -1,19 +1,13 @@
 class Solution:
     def findJudge(self, n: int, trust: List[List[int]]) -> int:
-        adj = [[] for _ in range(n+1)]
+        deg = [0] * (n+1)
         for a, b in trust:
-            adj[a].append(b)
+            deg[b] += 1
+            deg[a] -= 1
         
-        temp = -1
-        for i in range(1, n+1):
-            if len(adj[i]) == 0:
-                temp = i
-                break
-                
-        for i in range(1, n+1):
-            if i != temp and temp not in adj[i]:
-                return -1
-            else:
-                continue
+        for v in range(1, n+1):
+            if deg[v] == n-1:
+                return v
+            
+        return -1
         
-        return temp
