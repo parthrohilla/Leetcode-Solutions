@@ -1,22 +1,23 @@
 class Solution:
     def findRedundantConnection(self, edges: List[List[int]]) -> List[int]:
         
-        def dfs(start, end, parent):
+        def path(start, end, parent):
             if start == end:
                 return True
             
-            for v in adj[start]:
-                if v != parent:
-                    if dfs(v, end, start):
-                        return True
+            for nei in adj[start]:
+                if nei != parent and path(nei, end, start):
+                    return True
             return False
         
         n = len(edges)
         adj = [[] for _ in range(n+1)]
         
-        for start, end in edges:
-            if dfs(start, end, 0):
-                return [start,end]
+        for a, b in edges:
+            # If the path already exists then return this edge
+            if path(a,b, 0):
+                return [a,b]
             else:
-                adj[start].append(end)
-                adj[end].append(start)
+                adj[a].append(b)
+                adj[b].append(a)
+        
