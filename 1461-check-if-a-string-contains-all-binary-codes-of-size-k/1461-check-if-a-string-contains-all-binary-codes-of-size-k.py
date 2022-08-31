@@ -3,6 +3,8 @@ class Solution:
         seen = set()
         for i in range(len(s)-k+1):
             seen.add(s[i:i+k])
+            if len(seen) == 2**k:
+                break
         
         temp = set()
         for string in seen:
