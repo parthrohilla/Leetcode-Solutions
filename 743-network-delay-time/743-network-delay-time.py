@@ -10,9 +10,6 @@ class Solution:
         while heap:
             weight, node = heapq.heappop(heap)
             
-            if node in visited:
-                continue
-            
             visited.add(node)
             t = max(t, weight)
             if len(visited) == n:
