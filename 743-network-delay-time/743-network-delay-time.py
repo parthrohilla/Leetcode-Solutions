@@ -9,11 +9,9 @@ class Solution:
         t = 0
         while heap:
             weight, node = heapq.heappop(heap)
-            
             visited.add(node)
-            t = max(t, weight)
             if len(visited) == n:
-                return t
+                return weight
             for nei, w in adj[node]:
                 if nei not in visited:
                     heapq.heappush(heap, (weight + w,nei))
