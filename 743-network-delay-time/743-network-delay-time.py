@@ -1,20 +1,22 @@
 class Solution:
     def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
-        adj = collections.defaultdict(list)
+        adj = defaultdict(list)
         for u, v, w in times:
-            adj[u].append([v, w])
-        
-        heap = [[0, k]]
-        t = 0
+            adj[u].append((v,w))
+            
+        heap = [(0,k)] #(time, node)
         visited = set()
+        t = 0
         while heap:
-            u,v = heapq.heappop(heap)
-            if v in visited:
+            weight, node = heapq.heappop(heap)
+            if node in visited:
                 continue
             
-            visited.add(v)
-            t = max(t, u)
-            for u2, v2 in adj[v]:
-                if u2 not in visited:
-                    heapq.heappush(heap, [u+v2, u2])
+            visited.add(node)
+            t = max(t, weight)
+            for nei, w in adj[node]:
+                if nei not in visited:
+                    heapq.heappush(heap, (weight + w,nei))
+            
         return t if len(visited) == n else -1
+            
