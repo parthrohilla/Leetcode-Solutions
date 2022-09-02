@@ -10,13 +10,12 @@ class Solution:
                     row_map[i] += 1
                     col_map[j] += 1
         
-        connected = set()
+        connected = 0
         for i in range(m):
             for j in range(n):
-                if grid[i][j] == 1:
-                    if row_map[i] > 1 or col_map[j] > 1:
-                        connected.add((i,j))
-        return len(connected)
+                if grid[i][j] == 1 and (row_map[i] > 1 or col_map[j] > 1):
+                    connected += 1
+        return connected
                         
                     
         
