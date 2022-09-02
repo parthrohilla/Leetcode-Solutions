@@ -31,9 +31,7 @@ class Solution:
                 curr.next = t2
                 
             return dummy.next
-                
-        
-        
+                      
         def sort(head):
             if not head or not head.next:
                 return head
