@@ -8,7 +8,6 @@ class Solution:
         times, ways = [math.inf]*n,  [math.inf]*n
         times[0], ways[0] = 0, 1
         heap = [(0,0)]
-        
         while heap:
             time,node = heapq.heappop(heap)
             
