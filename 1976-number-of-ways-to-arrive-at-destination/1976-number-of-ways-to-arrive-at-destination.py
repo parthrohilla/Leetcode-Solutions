@@ -5,10 +5,8 @@ class Solution:
             adj[a].append((b,time))
             adj[b].append((a,time))
         
-        times = [math.inf]*n
-        times[0] = 0
-        ways = [math.inf]*n
-        ways[0] = 1
+        times, ways = [math.inf]*n,  [math.inf]*n
+        times[0], ways[0] = 0, 1
         heap = [(0,0)]
         
         while heap:
