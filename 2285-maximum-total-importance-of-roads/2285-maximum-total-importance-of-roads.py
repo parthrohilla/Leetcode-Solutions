@@ -11,7 +11,7 @@ class Solution:
         imp.sort(reverse = True)
         
         k = n
-        values = {}
+        values = [0]*n
         for val,i in imp:
             values[i] = k
             k -= 1
