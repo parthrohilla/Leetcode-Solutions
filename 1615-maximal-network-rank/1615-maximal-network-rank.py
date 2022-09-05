@@ -7,10 +7,8 @@ class Solution:
         
         ans = 0
         for i in range(n):
-            for j in range(i,n):
-                if i == j:
-                    continue
-                elif i in adj[j]:
+            for j in range(i+1,n):
+                if i in adj[j]:
                     ans = max(ans, len(adj[i]) + len(adj[j]) -1)
                 else:
                     ans = max(ans, len(adj[i]) + len(adj[j]))          
