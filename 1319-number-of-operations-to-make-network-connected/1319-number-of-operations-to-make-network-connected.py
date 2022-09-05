@@ -1,7 +1,6 @@
 class Solution:
     def makeConnected(self, n: int, connections: List[List[int]]) -> int:
-        if n-1 > len(connections):
-            return -1
+        if n-1 > len(connections): return -1
         
         adj = defaultdict(list)
         for a,b in connections:
@@ -14,13 +13,10 @@ class Solution:
                 if nei not in seen:
                     dfs(nei)
         
-        components = 0
-        seen = set()
+        components, seen = 0, set()
         for node in range(n):
             if node not in seen:
                 dfs(node)
                 components += 1
-        
-        #Final Return condition
         return components-1
         
