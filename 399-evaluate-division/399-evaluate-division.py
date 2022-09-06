@@ -19,7 +19,6 @@ class Solution:
             visited.remove(curr)
             return -1
             
-        
         ans = []
         visited = set()
         for a,b in queries:
