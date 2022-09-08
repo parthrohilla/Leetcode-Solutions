@@ -12,12 +12,13 @@ class Solution:
     def similar(self, a, b):
         diff = 0
         for char1, char2 in zip(a, b):
-            if char1 != char2:
+            if char1 != char2: 
                 diff += 1
             if diff > 2:
                 return False
         return True
-
+    
+    ## Union - Find Implementations
     def find(self, x):
         if self.parent[x] == x: return x
         self.parent[x] = self.find(self.parent[x])
