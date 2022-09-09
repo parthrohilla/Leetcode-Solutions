@@ -1,17 +1,15 @@
 class Solution:
     def shortestAlternatingPaths(self, n: int, redEdges: List[List[int]], blueEdges: List[List[int]]) -> List[int]:
         adj = defaultdict(list)
-        for a,b in redEdges:
-            adj[a].append((b,"red"))
-        
-        for a,b in blueEdges:
-            adj[a].append((b,"blue"))
-        
+        # Create an adjacency list with (TARGET, COLOUR_OF EDGE)
+        for a,b in redEdges: adj[a].append((b,"red"))
+        for a,b in blueEdges: adj[a].append((b,"blue"))
+            
         ans, distance = [-1]*n, 0
         ans[0] = 0
         visited = set()
         q = deque()
-        q.append((0,"g", 0))
+        q.append((0,"any_color", 0))
         while q:
             node, color, distance = q.popleft()
             for nei,c in adj[node]:
