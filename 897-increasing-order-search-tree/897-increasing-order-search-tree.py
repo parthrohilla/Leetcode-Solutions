@@ -13,17 +13,13 @@ class Solution:
         if root.right: right = self.increasingBST(root.right)
         
         dummy = TreeNode(-1)
-        dummy.right = left
+        dummy.right = left if left else root
         
         tail = left
         while tail and tail.right:
             tail = tail.right
         
-        if tail: 
-            tail.right = root
-        else:
-            dummy.right = root
-            
+        if tail: tail.right = root    
         root.left = None
-        if root: root.right = right
+        root.right = right
         return dummy.right
