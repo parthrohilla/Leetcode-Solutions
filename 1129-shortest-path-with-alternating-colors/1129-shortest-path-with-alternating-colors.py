@@ -20,6 +20,6 @@ class Solution:
                         ans[nei] = distance+1
                     if (nei,c) not in visited:
                         q.append((nei,c, distance+1))
-                    visited.add((nei,c))
-            # print(q)
+                        visited.add((nei,c))
+        
         return ans
