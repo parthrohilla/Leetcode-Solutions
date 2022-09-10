@@ -4,9 +4,11 @@ class Solution:
         q = deque()
         visited = set()
         final = ((1<<n) - 1)
+        k = min([len(x) for x in graph])
         for i in range(n):
-            visited.add((i,1<<i))
-            q.append((i,1<<i))
+            if len(graph[i]) == k:
+                visited.add((i,1<<i))
+                q.append((i,1<<i))
         
         distance = 0
         while q:
