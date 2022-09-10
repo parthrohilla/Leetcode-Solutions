@@ -1,8 +1,7 @@
 class Solution:
     def shortestPathLength(self, graph: List[List[int]]) -> int:
-        n, start = len(graph), 0
-        q = deque()
-        visited = set()
+        n, start, q, visited = len(graph), 0, deque(), set()
+        
         final = ((1<<n) - 1)
         k = min([len(x) for x in graph])
         for i in range(n):
@@ -17,10 +16,8 @@ class Solution:
                 node,state = q.popleft()
                 for nei in graph[node]:
                     new_state = state | (1<<nei)
-                    if new_state == final:
-                        return distance
-                    if (nei, new_state) in visited:
-                        continue
+                    if new_state == final: return distance
+                    if (nei, new_state) in visited: continue
                     q.append((nei, new_state))
                     visited.add((nei, new_state))
         return 0
