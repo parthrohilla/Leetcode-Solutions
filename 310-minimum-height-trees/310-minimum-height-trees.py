@@ -1,6 +1,5 @@
 class Solution:
     def findMinHeightTrees(self, n: int, edges: List[List[int]]) -> List[int]:
-        if n == 1: return [0]
         adj, deg = defaultdict(list), [0]*n
         for a,b in edges:
             adj[a].append(b)
@@ -12,7 +11,7 @@ class Solution:
         for i in range(n):
             if deg[i] == 1:
                 q.append(i)
-        ans = []        
+        ans = [0]        
         while q:
             ans = []
             for _ in range(len(q)):
