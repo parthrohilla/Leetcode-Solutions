@@ -7,19 +7,19 @@ class Solution:
             deg[a] += 1
             deg[b] += 1
         
-        q = deque()
+        q, ans = deque(), [0]
         for i in range(n):
             if deg[i] == 1:
                 q.append(i)
-        ans = [0]        
+        
         while q:
             ans = []
             for _ in range(len(q)):
                 node = q.popleft()
+                ans.append(node)
                 for nei in adj[node]:
                     deg[nei] -= 1
                     if deg[nei] == 1:
-                        q.append(nei)
-                ans.append(node)
+                        q.append(nei)        
         return ans
             
