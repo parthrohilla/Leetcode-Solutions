@@ -33,7 +33,6 @@ class Solution:
         components = n
         for i in adj.keys():
             for j in adj[i]:
-                print(i,j)
                 components -= union(i,j)
         
         
