@@ -1,3 +1,3 @@
 class Solution:
     def canConstruct(self, ransomNote: str, magazine: str) -> bool:
-        return Counter(ransomNote) <= Counter(magazine)
+        return  not(Counter(ransomNote) - Counter(magazine))
