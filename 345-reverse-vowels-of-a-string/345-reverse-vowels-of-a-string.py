@@ -1,16 +1,14 @@
 class Solution:
     def reverseVowels(self, s: str) -> str:
-        vowels = set("aeiouAEIOU")
-        seq = ""
+        vowels, seq = set("aeiouAEIOU"), ""
+        # Get vowel sequence in reverse order
         for char in s:
             if char in vowels:
                 seq = char + seq
-        
-        j = 0
-        ans = ""
+        #Build answer using reversed vowel sequence
+        ans, j = "", 0
         for char in s:
-            if char not in vowels:
-                ans += char
+            if char not in vowels: ans += char
             else:
                 ans += seq[j]
                 j += 1
