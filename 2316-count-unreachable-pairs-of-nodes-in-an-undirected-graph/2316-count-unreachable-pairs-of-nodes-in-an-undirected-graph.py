@@ -5,7 +5,6 @@ class Solution:
             adj[a].append(b)
             adj[b].append(a)
         
-        components = []
         def dfs(i):
             visited.add(i)
             nodes = 1
@@ -14,18 +13,11 @@ class Solution:
                     nodes += dfs(nei)
             return nodes
         
-        visited = set()
-        ans = (n*(n-1))//2
+        visited, ans = set(), (n*(n-1))//2
         for i in range(n):
             if i not in visited:
                 temp = dfs(i)
                 ans -= (temp*(temp-1))//2
-        
-        # res = 0
-        # print(components)
-        # for i in range(len(components)):
-        #     for j in range(i+1,len(components)):
-        #         res += (components[i]*components[j])
         return ans
         
         
