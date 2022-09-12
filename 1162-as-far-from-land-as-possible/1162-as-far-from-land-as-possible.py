@@ -22,5 +22,5 @@ class Solution:
                         grid[x][y] = level
                         q.append((x,y))
         
-        return max([max(row) for row in grid])
+        return level-1
         
