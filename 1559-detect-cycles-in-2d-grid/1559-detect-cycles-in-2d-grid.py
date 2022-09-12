@@ -8,11 +8,8 @@ class Solution:
             for dx,dy in [[0,1],[1,0],[-1,0],[0,-1]]:
                 x,y = i + dx, j + dy
                 if x>=0 and x<m and y>=0 and y<n and (x,y) != (px,py) and grid[x][y] == grid[i][j]:
-                    if (x,y) in visited:
-                        return True
-                    if dfs(x,y,i,j):
-                        return True
-                    
+                    if (x,y) in visited: return True
+                    if dfs(x,y,i,j): return True        
             return False
                     
         
