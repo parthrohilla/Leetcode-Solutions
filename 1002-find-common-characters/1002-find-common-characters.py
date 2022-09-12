@@ -9,8 +9,7 @@ class Solution:
             
         #intersection of sets
         for i in range(26):
-            if setA[i] != setB[i]:
-                setA[i] = setB[i] = min(setA[i],setB[i])
+            if setA[i] != setB[i]: setA[i] = setB[i] = min(setA[i],setB[i])
         
         for i in range(2,len(words)):
             setB = [0]*26
@@ -22,8 +21,7 @@ class Solution:
         ans = []
         for i in range(26):
             if setA[i] != 0:
-                for _ in range(setA[i]):
-                    ans.append(chr(ord("a") + i))
+                ans += [(chr(ord("a") + i))]*setA[i]
         return ans
                 
             
