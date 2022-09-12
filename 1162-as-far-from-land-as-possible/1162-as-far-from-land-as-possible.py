@@ -1,6 +1,6 @@
 class Solution:
     def maxDistance(self, grid: List[List[int]]) -> int:
-        m, n, q = len(grid), len(grid[0]), deque()
+        m, n, q, level = len(grid), len(grid[0]), deque(), 0
         for i in range(m):
             for j in range(n):
                 if grid[i][j] == 1:
@@ -12,7 +12,6 @@ class Solution:
         if len(q) == m*n:
             return -1
         
-        level = 0
         while q:
             level += 1
             for _ in range(len(q)):
