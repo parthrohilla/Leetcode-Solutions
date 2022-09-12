@@ -1,5 +1,3 @@
 class Solution:
     def rotateString(self, s: str, goal: str) -> bool:
-        if len(goal) != len(s): return False
-        goal = goal*2
-        return s in goal
+        return len(s) == len(goal) and s in goal*2
