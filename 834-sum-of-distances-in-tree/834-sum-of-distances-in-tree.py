@@ -8,19 +8,21 @@ class Solution:
         count, res = [0]*n, [0]*n
         def postorder(i, parent = -1):
             for nei in adj[i]:
-                if nei == parent:
+                if nei == parent: 
                     continue
-                postorder(nei,i)
-                count[i] += count[nei]
-                res[i] += (res[nei] + count[nei])
+                else:
+                    postorder(nei,i)
+                    count[i] += count[nei]
+                    res[i] += (res[nei] + count[nei])
             count[i] += 1
         
         def preorder(i, parent = -1):
             for nei in adj[i]:
                 if nei == parent:
                     continue
-                res[nei] = res[i] - count[nei] + (len(count)-count[nei])
-                preorder(nei,i)
+                else:
+                    res[nei] = res[i] - count[nei] + (len(count)-count[nei])
+                    preorder(nei,i)
         
         postorder(0)
         preorder(0)
