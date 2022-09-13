@@ -1,10 +1,12 @@
 class Solution:
     def islandPerimeter(self, grid: List[List[int]]) -> int:
-        m,n = len(grid), len(grid[0])
-        visited = set()
+        m,n,visited = len(grid), len(grid[0]), set()
+        
         def dfs(i,j):
-            if (i,j) in visited: return 0
-            if i<0 or i>=m or j<0 or j>=n or grid[i][j] == 0: return 1
+            if (i,j) in visited: 
+                return 0
+            if i<0 or i>=m or j<0 or j>=n or grid[i][j] == 0: 
+                return 1
             visited.add((i,j))
             perimeter = 0
             perimeter += dfs(i+1,j) + dfs(i-1,j) + dfs(i,j+1) + dfs(i,j-1)
