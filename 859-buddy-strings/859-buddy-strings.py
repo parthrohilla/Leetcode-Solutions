@@ -5,10 +5,9 @@ class Solution:
             if len(s) == len(set(s)):return False
             return True
         
-        s = list(s)
-        goal = list(goal)
-        
+        s,goal = list(s),list(goal)
         i,first,second = 0,-1,-1
+        
         while i < len(s):
             if s[i] != goal[i]:
                 if first == -1:
