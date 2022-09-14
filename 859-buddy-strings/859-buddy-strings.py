@@ -8,8 +8,7 @@ class Solution:
         s = list(s)
         goal = list(goal)
         
-        i = 0
-        first,second = -1,-1
+        i,first,second = 0,-1,-1
         while i < len(s):
             if s[i] == goal[i]: 
                 i += 1
@@ -22,6 +21,5 @@ class Solution:
                 i += 1
         
         s[first],s[second] = s[second],s[first]
-        if s == goal:return True
+        if s == goal: return True
         return False
-            
