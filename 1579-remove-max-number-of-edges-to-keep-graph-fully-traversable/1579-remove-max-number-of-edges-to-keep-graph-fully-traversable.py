@@ -15,9 +15,8 @@ class Solution:
                 return False
             
         edges.sort(reverse=True)
-        A,B = n,n
-        parentA, parentB = [x for x in range(n+1)], [x for x in range(n+1)]
-        remove = 0
+        parentA, parentB, remove, A,B = [x for x in range(n+1)], [x for x in range(n+1)], 0, n, n
+        
         for t,a,b in edges:
             if t == 3:
                 op1 = union(parentA,a,b)
