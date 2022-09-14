@@ -19,4 +19,4 @@ class Solution:
         
         s[first],s[second] = s[second],s[first]
         if s == goal: return True
-        return False
+        else: return False
