@@ -36,8 +36,6 @@ class Solution:
                 if union(parentB,a,b):
                     remove += 1
                 else:
-                    B -= 1
-                    
-        print(A,B)   
+                    B -= 1  
         return remove if A == 1 and B == 1 else -1
                 
