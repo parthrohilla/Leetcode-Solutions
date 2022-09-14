@@ -10,15 +10,13 @@ class Solution:
         
         i,first,second = 0,-1,-1
         while i < len(s):
-            if s[i] == goal[i]: 
-                i += 1
-            else:
+            if s[i] != goal[i]:
                 if first == -1:
                     first = i
                 else:
                     second = i
                     break
-                i += 1
+            i += 1
         
         s[first],s[second] = s[second],s[first]
         if s == goal: return True
