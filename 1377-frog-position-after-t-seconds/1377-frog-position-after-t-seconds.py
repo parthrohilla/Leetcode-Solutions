@@ -27,15 +27,9 @@ class Solution:
                         if t < level: return 0
                         elif t == level: return p*(1/children)
                         else:
-                            k = 0
-                            for x in adj[nei]:
-                                if x not in seen:
-                                    k += 1
-                                    
-                            if k == 0:
-                                return p*(1/children)
-                            else:
-                                return 0
+                            k = sum([1 if x not in seen else 0 for x in adj[nei]])
+                            if k == 0: return p*(1/children)
+                            else: return 0
                     elif nei not in seen:
                         seen.add(nei)
                         q.append((nei,p*(1/children)))
