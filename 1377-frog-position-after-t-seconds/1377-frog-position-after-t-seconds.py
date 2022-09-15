@@ -3,24 +3,18 @@ class Solution:
         if target == 1 and len(edges) == 0: return 1
         if target == 1 and t>0: return 0
         
-        adj = defaultdict(list)
-        seen = {1}
+        adj, seen, level = defaultdict(list), {1}, 0
         for a,b in edges:
             adj[a].append(b)
             adj[b].append(a)
             
         q = deque()
         q.append((1,1))
-        level = 0
         while q:
             level += 1
             for _ in range(len(q)):
                 n,p = q.popleft()
-                
-                children = 0
-                for x in adj[n]:
-                    if x not in seen:
-                        children += 1
+                children = sum([1 if x not in seen else 0 for x in adj[n]])
                 
                 for nei in adj[n]:
                     if nei == target:
@@ -33,7 +27,6 @@ class Solution:
                     elif nei not in seen:
                         seen.add(nei)
                         q.append((nei,p*(1/children)))
-        
         return 0
                         
                         
