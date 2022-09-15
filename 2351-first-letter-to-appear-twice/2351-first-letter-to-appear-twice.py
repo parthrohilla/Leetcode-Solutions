@@ -7,3 +7,4 @@ class Solution:
             if bitmap & (1<<p) == 0:
                 return char
             
+            
