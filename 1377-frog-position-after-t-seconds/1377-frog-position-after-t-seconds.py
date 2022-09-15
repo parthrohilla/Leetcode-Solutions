@@ -14,14 +14,14 @@ class Solution:
             level += 1
             for _ in range(len(q)):
                 n,p = q.popleft()
-                children = sum([1 if x not in seen else 0 for x in adj[n]])
+                children = len([x for x in adj[n] if x not in seen])
                 
                 for nei in adj[n]:
                     if nei == target:
                         if t < level: return 0
                         elif t == level: return p*(1/children)
                         else:
-                            k = sum([1 if x not in seen else 0 for x in adj[nei]])
+                            k = len([x for x in adj[nei] if x not in seen])
                             if k == 0: return p*(1/children)
                             else: return 0
                     elif nei not in seen:
