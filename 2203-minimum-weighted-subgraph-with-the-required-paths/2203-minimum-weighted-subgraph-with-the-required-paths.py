@@ -11,13 +11,16 @@ class Solution:
             distance = [math.inf]*n
             distance[src] = 0
             heap = [[0,src]]
+            visited = set()
             while heap:
-                d,node = heapq.heappop(heap)
-                if d > distance[node]: continue
+                d,node = heapq.heappop(heap)   
+                if node in visited: continue
+                visited.add(node)
                 for nei,w in adj[node]:
-                    if distance[nei] > d + w:
-                        distance[nei] = d + w
-                        heapq.heappush(heap,[distance[nei],nei])
+                    if nei not in visited:
+                        if distance[nei] > d + w:
+                            distance[nei] = d + w
+                            heapq.heappush(heap,[distance[nei],nei])
             return distance
         
         d1 = shortest(e,src1)
