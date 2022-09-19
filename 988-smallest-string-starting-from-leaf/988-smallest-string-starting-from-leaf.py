@@ -17,5 +17,5 @@ class Solution:
             if root.left: dfs(root.left, s)
             if root.right: dfs(root.right, s)
                 
-        dfs(root, '')
+        dfs(root, "")
         return self.res
