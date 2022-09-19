@@ -5,19 +5,21 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def smallestFromLeaf(self, root: Optional[TreeNode]) -> str:
-        def dfs(node):
-            if not node: return []
-            if node.left == None and node.right == None: return [chr(ord("a") + node.val)]
-            
-            left = dfs(node.left)
-            right = dfs(node.right)
-
-            if left and not right: return [s + chr(ord("a") + node.val) for s in left]
-            if right and not left: return [s + chr(ord("a") + node.val) for s in right]
-            else: 
-                for i,s in enumerate(left): left[i] = s + (chr(ord("a") + node.val))
-                for i,s in enumerate(right): right[i] = s + (chr(ord("a") + node.val))
-                return left + right
-            
-        return min(dfs(root))
+    def smallestFromLeaf(self, root: TreeNode) -> str:
+        def dfs(root, s):
+            s = s + chr(ord('a') + root.val)
+            if not root.left and not root.right:
+                if res[0] == None:
+                    res[0] = s[::-1]
+                else:
+                    res[0] = min(res[0], s[::-1])
+            if root.left:
+                dfs(root.left, s)
+            if root.right:
+                dfs(root.right, s)
+        
+        if not root:
+            return ''
+        res = [None]
+        dfs(root, '')
+        return res[0]
