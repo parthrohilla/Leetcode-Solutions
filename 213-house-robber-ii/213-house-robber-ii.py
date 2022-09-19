@@ -1,19 +1,11 @@
 class Solution:
     def rob(self, nums: List[int]) -> int:
-        if len(nums) == 1:
-            return nums[0]
+        if len(nums) == 1: return nums[0]
+        memo = {}
+        def dfs(i, end):
+            if i > end: return 0
+            if (i,end) in memo: return memo[(i,end)]
+            memo[(i,end)] = max(nums[i] + dfs(i+2, end), dfs(i+1, end))
+            return memo[(i,end)]
         
-        def helper(i, nums, memo):
-            if i>=len(nums):
-                return 0
-            if i in memo:
-                return memo[i]
-            
-            memo[i] = max(nums[i] + helper(i+2, nums, memo) , helper(i+1, nums, memo))
-            return memo[i]
-            
-        nums1, nums2 = nums[1:], nums[:-1]
-        temp1 = helper(0, nums1, {})
-        temp2 = helper(0, nums2, {})
-        return max(temp1, temp2)
-        
+        return max(dfs(0,len(nums)-2),dfs(1,len(nums)-1))
