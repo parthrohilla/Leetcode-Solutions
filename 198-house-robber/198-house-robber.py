@@ -1,8 +1,9 @@
 class Solution:
     def rob(self, nums: List[int]) -> int:
-        prev, prev2 = nums[0],0
-        for i in range(1,len(nums)):
-            curr = max(nums[i] + prev2, prev)
-            prev2 = prev
-            prev = curr
-        return prev
+        def dfs(i):
+            if i >= len(nums):return 0
+            if i in memo: return memo[i]
+            memo[i] = max(nums[i] + dfs(i+2), dfs(i+1))
+            return memo[i]
+        memo = {}
+        return dfs(0)
