@@ -1,9 +1,9 @@
 class Solution:
     def minimumTotal(self, triangle: List[List[int]]) -> int:
         n, memo = len(triangle), {}
-        def dfs(r, prev):
-            if r == n: return 0
-            if (r,prev) in memo: return memo[(r,prev)]
-            memo[(r,prev)] = min(triangle[r][prev] + dfs(r+1,prev), triangle[r][prev+1] + dfs(r+1, prev+1))
-            return memo[(r,prev)]
-        return triangle[0][0] + dfs(1, 0)
+        def dfs(i,j):
+            if i == n: return 0
+            if (i,j) in memo: return memo[(i,j)]
+            memo[(i,j)] = triangle[i][j] + min(dfs(i+1,j), dfs(i+1,j+1))
+            return memo[(i,j)]
+        return dfs(0,0)
