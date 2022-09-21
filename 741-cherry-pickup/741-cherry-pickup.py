@@ -7,7 +7,7 @@ class Solution:
             if (x1,y1,x2,y2) in lookup: return lookup[(x1,y1,x2,y2)]
             
             ans = 0
-            if x1 == x2 and y1 == y2: ans += grid[x1][y1]
+            if (x1,y1) == (x2,y2): ans += grid[x1][y1]
             else: ans += grid[x1][y1] + grid[x2][y2]
             ans += max(dfs(x1,y1+1,x2,y2+1), dfs(x1+1,y1,x2+1,y2), dfs(x1+1,y1,x2,y2+1), dfs(x1,y1+1,x2+1,y2))
             lookup[(x1,y1,x2,y2)] = ans
