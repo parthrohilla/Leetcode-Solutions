@@ -2,10 +2,9 @@ class Solution:
     def cherryPickup(self, grid: List[List[int]]) -> int:
         m,n,dp = len(grid), len(grid[0]), {}
         def dfs(i,j1,j2):
-            if j1<0 or j2<0 or j1>=n or j2>=n: return -math.inf
+            if min(j1,j2)<0 or max(j1,j2)>=n: return -math.inf
             if (i,j1,j2) in dp: return dp[(i,j1,j2)]
             if i == m: return 0
-            
             ans = 0
             for a in [-1,0,1]:
                 for b in [-1,0,1]:
