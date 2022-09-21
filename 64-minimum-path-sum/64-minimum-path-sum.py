@@ -1,10 +1,12 @@
 class Solution:
     def minPathSum(self, grid: List[List[int]]) -> int:
-        m,n, memo = len(grid), len(grid[0]), {}
-        def dfs(i,j):
-            if i== m-1 and j == n-1: return grid[i][j]
-            if i >=m or j >=n: return math.inf
-            if (i,j) in memo: return memo[(i,j)]
-            memo[(i,j)] = grid[i][j] + min(dfs(i+1,j), dfs(i,j+1))
-            return memo[(i,j)]
-        return dfs(0,0)
+        m,n= len(grid), len(grid[0])
+        dp = [[0]*n for _ in range(m)]
+        
+        for i in range(m):
+            for j in range(n):
+                if i == 0 and j == 0: dp[i][j] = grid[i][j]
+                elif i == 0: dp[i][j] = grid[i][j] + dp[i][j-1]
+                elif j == 0: dp[i][j] = grid[i][j] + dp[i-1][j]
+                else: dp[i][j] = grid[i][j] + min(dp[i-1][j],dp[i][j-1])
+        return dp[m-1][n-1]        
