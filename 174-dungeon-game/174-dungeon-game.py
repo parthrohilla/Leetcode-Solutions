@@ -9,5 +9,4 @@ class Solution:
             
             lookup[(i,j)] = max(1,min(dfs(i+1,j), dfs(i,j+1))-grid[i][j])
             return lookup[(i,j)]
-        
         return dfs(0,0)
