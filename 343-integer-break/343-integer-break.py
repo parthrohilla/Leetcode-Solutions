@@ -7,7 +7,7 @@ class Solution:
             if i == 0: return integers[0]
             if (i,s) in lookup: return lookup[(i,s)]
             notpick = dfs(i-1,s)
-            pick = -1
+            pick = 1
             if s - integers[i] >= 0:
                 pick = integers[i] * dfs(i,s-integers[i])
             lookup[(i,s)] = max(pick, notpick)
