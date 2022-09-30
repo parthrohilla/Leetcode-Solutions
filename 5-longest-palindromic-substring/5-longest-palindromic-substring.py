@@ -4,9 +4,7 @@ class Solution:
         for i in range(len(s)):
             odd_palindromic = self.expand(i, i, s)
             even_palindromic = self.expand(i, i+1, s)
-            if len(odd_palindromic) > len(even_palindromic): temp = odd_palindromic
-            else: temp = even_palindromic
-            
+            temp = odd_palindromic if len(odd_palindromic) > len(even_palindromic) else even_palindromic
             if len(ans) < len(temp): ans = temp
         return ans
     
