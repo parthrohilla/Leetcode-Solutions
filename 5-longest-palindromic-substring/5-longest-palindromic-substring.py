@@ -2,21 +2,20 @@ class Solution:
     def longestPalindrome(self, s: str) -> str:
         ans = ""
         for i in range(len(s)):
-            odd_palindromic = self.helper(i, i, s)
-            even_palindromic = self.helper(i, i+1, s)
-            if len(odd_palindromic) > len(even_palindromic):
-                temp = odd_palindromic
-            else:
-                temp = even_palindromic
+            odd_palindromic = self.expand(i, i, s)
+            even_palindromic = self.expand(i, i+1, s)
+            if len(odd_palindromic) > len(even_palindromic): temp = odd_palindromic
+            else: temp = even_palindromic
             
-            if len(ans) < len(temp):
-                ans = temp
+            if len(ans) < len(temp): ans = temp
         return ans
     
-    def helper(self, l, r, string):
+    def expand(self, l, r, string):
         temp = ""
         while l>=0 and r<len(string) and string[l] == string[r]:
             temp = string[l:r+1]
             l -= 1
             r += 1
         return temp
+        
+        
