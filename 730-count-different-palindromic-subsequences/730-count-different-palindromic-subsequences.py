@@ -19,5 +19,4 @@ class Solution:
                 count = dfs(i+1,j) + dfs(i,j-1) - dfs(i+1,j-1) 
             memo[(i,j)] =  count % 1000000007
             return memo[(i,j)]
-        
         return dfs(0,len(s)-1)
