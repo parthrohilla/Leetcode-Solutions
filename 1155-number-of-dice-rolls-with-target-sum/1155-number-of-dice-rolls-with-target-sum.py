@@ -6,7 +6,6 @@ class Solution:
             if (times,curr) in lookup: return lookup[(times,curr)]
             if curr == target and times == n: return 1
             if times >= n or curr > target: return 0
-            
             ans = 0
             for pick in val:
                 ans += (dfs(times+1,curr + pick))
