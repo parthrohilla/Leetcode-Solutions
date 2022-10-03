@@ -1,7 +1,6 @@
 class Solution:
     def numTeams(self, rating: List[int]) -> int:
-        n = len(rating)
-        count = 0
+        n, count = len(rating), 0
         for i,val in enumerate(rating):
             ls,rs,ll,rl = 0,0,0,0
             for j in rating[:i]:
