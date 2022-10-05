@@ -6,14 +6,12 @@
 class Solution:
     def mergeNodes(self, head: Optional[ListNode]) -> Optional[ListNode]:
         tail,temp = head, head.next
-        
         while temp:
             s = 0
             while temp.val != 0:
                 s += temp.val
                 temp = temp.next
             tail.next = ListNode(s)
-            tail = tail.next
-            temp = temp.next
+            tail, temp = tail.next, temp.next
         return head.next
         
