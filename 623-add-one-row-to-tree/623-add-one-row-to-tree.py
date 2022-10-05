@@ -6,16 +6,13 @@
 #         self.right = right
 class Solution:
     def addOneRow(self, root: Optional[TreeNode], val: int, depth: int) -> Optional[TreeNode]:
-        
         def dfs(node, h):
             if not node: return
             if h == depth - 1:
                 temp1, temp2 = node.left, node.right
-                node.left = TreeNode(val)
-                node.right = TreeNode(val)
-                node.left.left = temp1
-                node.right.right = temp2
-            
+                node.left, node.right = TreeNode(val), TreeNode(val) 
+                node.left.left, node.right.right = temp1, temp2
+                
             dfs(node.left, h+1)
             dfs(node.right, h+1)        
                 
