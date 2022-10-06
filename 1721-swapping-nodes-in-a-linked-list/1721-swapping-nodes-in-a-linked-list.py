@@ -12,10 +12,8 @@ class Solution:
         for _ in range(k-1): temp1 = temp1.next
         for _ in range(n-k-1): temp2 = temp2.next
         
-        n1, n2 = temp1.next, temp2.next
-        temp1.next = n2
-        temp2.next = n1
-        n1.next, n2.next = n2.next, n1.next
+        temp1.next, temp2.next = temp2.next, temp1.next
+        temp1.next.next, temp2.next.next = temp2.next.next, temp1.next.next
         return dummy.next
     
     def length(self, head):
