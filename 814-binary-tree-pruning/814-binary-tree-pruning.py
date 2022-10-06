@@ -13,6 +13,5 @@ class Solution:
             if not left: node.left = None
             if not right: node.right = None
             return node
-        
         return dfs(root)
                 
