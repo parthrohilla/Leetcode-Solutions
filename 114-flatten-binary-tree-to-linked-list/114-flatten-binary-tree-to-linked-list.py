@@ -8,7 +8,6 @@ class Solution:
     def flatten(self, root: Optional[TreeNode]) -> None:
         def dfs(node):
             if not node: return [node,node]
-            
             left, tailL = dfs(node.left)
             right, tailR = dfs(node.right)
             
