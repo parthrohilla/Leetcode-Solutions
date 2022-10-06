@@ -18,11 +18,11 @@ class Solution:
              #    \
              #     \         
              #      \
-             #    [Left sub-Tree HEAD]
+             #    [Left sub-Tree result HEAD]
              #        \             
              #         \
              #          \  
-             #        [Left sub-Tree TAIL]
+             #        [Left sub-Tree result TAIL]
              #            \
              #             \  
              #              \
