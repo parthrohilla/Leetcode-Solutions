@@ -11,9 +11,6 @@ class Solution:
             left, tailL = dfs(node.left)
             right, tailR = dfs(node.right)
             
-            if not left and not right: 
-                return [node,node]
-            
             if left: node.right = left
             if tailL: tailL.right = right
             node.left = None
