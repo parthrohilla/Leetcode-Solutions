@@ -8,10 +8,8 @@ class Solution:
     def pruneTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
         def dfs(node):
             if not node: return node
-            left, right = dfs(node.left), dfs(node.right)
-            if node.val == 0 and not left and not right: return None
-            if not left: node.left = None
-            if not right: node.right = None
-            return node
+            node.left, node.right = dfs(node.left), dfs(node.right)
+            if node.val == 0 and not node.left and not node.right: return None
+            else: return node
         return dfs(root)
                 
