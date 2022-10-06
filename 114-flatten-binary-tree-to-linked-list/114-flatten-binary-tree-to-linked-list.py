@@ -26,7 +26,7 @@ class Solution:
              #            \
              #             \  
              #              \
-             #        [Right sub-Tree flattened result] 
+             #        [Right sub-Tree HEAD] 
             if left: node.right = left
             if tailL: tailL.right = right
             node.left, tail = None, node
