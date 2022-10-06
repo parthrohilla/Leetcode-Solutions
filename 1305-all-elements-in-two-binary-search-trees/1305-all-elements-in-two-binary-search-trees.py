@@ -6,14 +6,12 @@
 #         self.right = right
 class Solution:
     def getAllElements(self, root1: TreeNode, root2: TreeNode) -> List[int]:
-        
-        def preorder(node):
+        def inorder(node):
             if not node: return []
-            return preorder(node.left) + [node.val] + preorder(node.right)
+            return inorder(node.left) + [node.val] + inorder(node.right)
         
         def merge(a,b):
-            i,j = 0,0
-            ans = []
+            i,j, ans = 0,0, []
             while i<len(a) and j<len(b):
                 if a[i] < b[j]:
                     ans.append(a[i])
@@ -21,9 +19,8 @@ class Solution:
                 else:
                     ans.append(b[j])
                     j += 1
-            
             if i < len(a): ans += a[i:]
             if j < len(b): ans += b[j:]
             return ans
         
-        return merge(preorder(root1), preorder(root2))
+        return merge(inorder(root1), inorder(root2))
