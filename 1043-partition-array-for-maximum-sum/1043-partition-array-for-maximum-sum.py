@@ -1,7 +1,7 @@
 class Solution:
     def maxSumAfterPartitioning(self, arr: List[int], k: int) -> int:
         n = len(arr)
-        @cache
+        @lru_cache(None)
         def dfs(i):
             if i == n: return 0
             
