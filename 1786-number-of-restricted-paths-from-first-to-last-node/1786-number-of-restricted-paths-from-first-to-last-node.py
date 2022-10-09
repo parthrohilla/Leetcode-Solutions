@@ -23,7 +23,6 @@ class Solution:
             if i == 0: return 1
             count = 0
             for nei, wei in adj[i]:
-                if nei not in path:
                     if d[nei] > d[i]:
                         count =(count + dfs(nei)) % mod
             return count
