@@ -1,12 +1,11 @@
 class Solution:
     def minCost(self, maxTime: int, edges: List[List[int]], passingFees: List[int]) -> int:
-        adj = defaultdict(list)
+        adj, cost = defaultdict(list), [-1]*len(passingFees)
         for u,v,t in edges:
             adj[u].append([v, t])
             adj[v].append([u, t])
         
         heap = [[0, passingFees[0], 0]]
-        cost = [-1]*len(passingFees)
         while heap:
             t, currentcost, node = heapq.heappop(heap)
             if cost[node] < 0 or currentcost < cost[node]:
