@@ -17,8 +17,7 @@ class Solution:
                     visited.add(node)
                     for nei in adj[node]:
                         if color[nei] == 0 or color[nei] == color[node]:
-                            color[nei] = color[node] + 1
-                            if color[nei] > 4: color[nei] %= 4
+                            color[nei] = (color[node] + 1) % 4 if (color[node] + 1) > 4 else (color[node] + 1)
                             q.append(nei)
         return color
             
