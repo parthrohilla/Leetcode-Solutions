@@ -1,12 +1,11 @@
 class Solution:
     def gardenNoAdj(self, n: int, paths: List[List[int]]) -> List[int]:
-        adj = defaultdict(list)
+        adj, q, visited = defaultdict(list), deque(), set()
+        # Make adj List
         for u,v in paths:
             adj[u-1].append(v-1)
             adj[v-1].append(u-1)
-            
-        q = deque()
-        visited = set()
+        # Graph coloring for all connected components
         color = [0]*n
         for u in range(n):
             if u not in visited:
