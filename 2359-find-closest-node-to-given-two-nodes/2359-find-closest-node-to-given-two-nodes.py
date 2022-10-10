@@ -15,7 +15,7 @@ class Solution:
         d = math.inf
         ans = -1
         for node in range(n):
-            if max(path1[node], path2[node]) < d and path1[node] != -1 and path2[node] != -1:
+            if path1[node] != -1 and path2[node] != -1 and max(path1[node], path2[node]) < d:
                 d = max(path1[node], path2[node])
                 ans = node
         print(path1, path2)
