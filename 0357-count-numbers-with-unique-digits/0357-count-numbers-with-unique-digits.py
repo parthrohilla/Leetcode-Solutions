@@ -6,7 +6,5 @@ class Solution:
             for _ in range(n-1):
                 res *= options
                 options -= 1
-            res += dfs(n-1)
-            return res
-        
+            return res + dfs(n-1)
         return dfs(n)
