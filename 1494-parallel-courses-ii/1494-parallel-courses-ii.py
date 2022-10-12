@@ -1,7 +1,6 @@
 class Solution:
     def minNumberOfSemesters(self, n: int, relations: List[List[int]], k: int) -> int:
-        self.k, self.n, self.adj = k, n, defaultdict(list)
-        indegrees = [0] * self.n
+        self.k, self.n, self.adj, indegrees = k, n, defaultdict(list), [0] * n
         for u,v in relations:
             self.adj[u-1].append(v-1)
             indegrees[v-1] += 1
