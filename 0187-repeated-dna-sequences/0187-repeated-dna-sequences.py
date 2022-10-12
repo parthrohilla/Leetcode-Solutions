@@ -5,9 +5,8 @@ class Solution:
         for i in range(len(s)-9):
             hashset[s[i:i+10]] += 1
         
-        count = max(hashset.values()) if hashset else 0
         
         for key in hashset:
-            if count > 1 and hashset[key] == count: ans.append(key)
+            if hashset[key] > 1: ans.append(key)
         
         return ans
