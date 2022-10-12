@@ -1,12 +1,8 @@
 class Solution:
     def findRepeatedDnaSequences(self, s: str) -> List[str]:
-        hashset, ans = defaultdict(int), []
-        
+        ans, seen = [], set()
         for i in range(len(s)-9):
-            hashset[s[i:i+10]] += 1
-        
-        
-        for key in hashset:
-            if hashset[key] > 1: ans.append(key)
-        
-        return ans
+            dna_sequence = s[i:i+10]
+            if dna_sequence in seen: ans.append(dna_sequence)
+            else: seen.add(dna_sequence)
+        return list(set(ans))
