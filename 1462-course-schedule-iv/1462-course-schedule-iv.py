@@ -1,7 +1,6 @@
 class Solution:
     def checkIfPrerequisite(self, n: int, prerequisites: List[List[int]], queries: List[List[int]]) -> List[bool]:
         adj = [[False]*n for _ in range(n)]
-        
         for u,v in prerequisites:
             adj[u][v] = True
             
