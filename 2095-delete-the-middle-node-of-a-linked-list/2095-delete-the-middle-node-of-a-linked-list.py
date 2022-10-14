@@ -5,9 +5,9 @@
 #         self.next = next
 class Solution:
     def deleteMiddle(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        n = self.length(head)
-        dummy = ListNode(-1, head)
+        n, dummy = self.length(head), ListNode(-1, head)
         curr = dummy
+        
         for _ in range(n//2): 
             curr = curr.next
             
