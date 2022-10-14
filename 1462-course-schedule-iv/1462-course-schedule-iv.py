@@ -9,8 +9,5 @@ class Solution:
                 for j in range(n):
                     adj[i][j] |= adj[i][k] and adj[k][j]
         
-        ans = []
-        for u,v in queries:
-            ans.append(adj[u][v])
-        return ans
+        return [adj[u][v] for u,v in queries]
     
