@@ -22,9 +22,8 @@ class Solution:
             m[find(i)].add(i)
         
         for indices in m.values():
-            sourcecnt = Counter([source[i] for i in indices])
-            targetcnt = Counter([target[i] for i in indices])
-            diff = sourcecnt - targetcnt
-            ans += sum(diff.values())
+            A = Counter([source[i] for i in indices])
+            B = Counter([target[i] for i in indices])
+            ans += sum((A - B).values())
             
         return ans
