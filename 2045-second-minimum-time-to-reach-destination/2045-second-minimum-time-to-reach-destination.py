@@ -15,7 +15,7 @@ class Solution:
             
             signal = curr_time // change
             for nei in adj[i]:
-                if signal % 2 != 0:
+                if signal % 2 == 1:
                     curr_time += (change*(signal+1) - curr_time)
                 
                 if not D[nei] or len(D[nei]) < 2:
