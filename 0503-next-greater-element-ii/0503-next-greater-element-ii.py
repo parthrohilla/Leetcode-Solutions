@@ -1,9 +1,7 @@
 class Solution:
     def nextGreaterElements(self, nums: List[int]) -> List[int]:
-        stack = []
-        ans = [-1] * len(nums)
-        index = 0
         n = len(nums)
+        ans, stack = [-1] * n, []
         temp = nums + nums
         for i, num in enumerate(temp):
             while stack and temp[stack[-1]] < num:
