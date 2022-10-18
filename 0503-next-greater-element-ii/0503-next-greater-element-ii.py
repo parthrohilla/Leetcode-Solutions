@@ -7,5 +7,5 @@ class Solution:
             while stack and temp[stack[-1]] < num:
                 pop = stack.pop()
                 ans[pop] = num
-            stack.append(i%n)
+            stack.append(i % n)
         return ans
