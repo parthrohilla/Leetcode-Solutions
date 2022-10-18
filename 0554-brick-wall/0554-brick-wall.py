@@ -7,5 +7,5 @@ class Solution:
                 prefix += k
                 corner[prefix] = 1 + corner.get(prefix, 0)
         
-        max_brick_edges = max(corner.values()) if corner else 0
+        max_brick_edges = max(corner.values(), default = 0)
         return rows - max_brick_edges
