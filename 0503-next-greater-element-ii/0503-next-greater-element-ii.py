@@ -1,12 +1,7 @@
 class Solution:
     def nextGreaterElements(self, nums: List[int]) -> List[int]:
-        hashmap = {}
-        for i, num in enumerate(nums):
-            hashmap[num] = i
-        
         stack = []
         ans = [-1] * len(nums)
-        
         index = 0
         n = len(nums)
         temp = nums + nums
