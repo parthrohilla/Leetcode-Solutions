@@ -21,7 +21,4 @@ class Solution:
         num = num[:pivot+1] + sorted(num[pivot+1:])
         ans =  int("".join(map(str,num)))
         # Returning answer if it fits in 32-bit as specified in the problem
-        if ans >= 2**31: 
-            return -1
-        else: 
-            return ans
+        return -1 if ans >= 2**31 else ans
