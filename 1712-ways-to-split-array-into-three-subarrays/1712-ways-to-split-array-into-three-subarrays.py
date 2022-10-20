@@ -1,5 +1,6 @@
 class Solution:
     def waysToSplit(self, nums: List[int]) -> int:
+        MOD = 1_000_000_007
         prefix = [0]
         for x in nums:
             prefix.append(prefix[-1] + x)
@@ -11,6 +12,6 @@ class Solution:
             k = max(k, j)
             while k < len(nums) and 2*prefix[k] <= (prefix[-1] + prefix[i]): k += 1
             ans += (k-j)
-        return ans % 1_000_000_007
+        return ans % MOD
                 
         
