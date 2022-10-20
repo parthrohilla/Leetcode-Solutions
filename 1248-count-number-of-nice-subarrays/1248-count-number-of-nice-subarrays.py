@@ -4,7 +4,6 @@ class Solution:
         for i, num in enumerate(nums):
             if num % 2: nums[i] = 1
             else: nums[i] = 0
-        
         # The problem now becomes subarray Sum Equals K 
         hashmap = {}
         ans = prefix = 0
@@ -14,6 +13,5 @@ class Solution:
             if (prefix - k) in hashmap:
                 ans += hashmap[prefix-k]
             hashmap[prefix] = 1 + hashmap.get(prefix, 0)
-        
         return ans
         
