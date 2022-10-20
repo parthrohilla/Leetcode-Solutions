@@ -9,7 +9,8 @@ class Solution:
                 while len(count.keys()) > k:
                     left = nums[l]
                     count[left] -= 1
-                    if count[left] == 0: del count[left]
+                    if count[left] == 0: 
+                        del count[left]
                     l += 1
                 ans += (r-l + 1)
             return ans
