@@ -1,7 +1,7 @@
 class Solution:
     def numberOfSubstrings(self, s: str) -> int:
         n, l, r, seen, ans = len(s), 0, 0, {}, 0
-        while r < n:
+        for r in range(n):
             # Acquire characters
             seen[s[r]] = 1 + seen.get(s[r], 0)
             
@@ -15,7 +15,6 @@ class Solution:
                     else: ans += (n - r)
                     l += 1
             
-            r += 1
         return ans
             
             
