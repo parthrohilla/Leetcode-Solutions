@@ -12,6 +12,7 @@ class Solution:
             k = max(k, j)
             while k < len(nums) and 2*prefix[k] <= (prefix[-1] + prefix[i]): k += 1
             ans += (k-j)
+        
         return ans % MOD
                 
         
