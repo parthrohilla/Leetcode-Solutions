@@ -6,6 +6,5 @@ class Solution:
                 prefix ^= nums[l]
                 l += 1
             prefix |= num
-            ans = max(ans, r-l+1)
-            
+            ans = max(ans, r-l+1)  
         return ans
