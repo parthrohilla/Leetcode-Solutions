@@ -6,7 +6,7 @@ class Solution:
             count = {}
             for r, num in enumerate(nums):
                 count[num] = 1 + count.get(num, 0)
-                while len(count.keys()) > k:
+                while len(count.keys()) == k+1:
                     left = nums[l]
                     count[left] -= 1
                     if count[left] == 0: 
