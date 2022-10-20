@@ -1,9 +1,7 @@
 class Solution:
     def numberOfSubarrays(self, nums: List[int], k: int) -> int:
         # Change odd Numbers to 1 ans Even Numbers to 0
-        for i, num in enumerate(nums):
-            if num % 2: nums[i] = 1
-            else: nums[i] = 0
+        nums = [1 if x % 2 else 0 for x in nums]
         # The problem now becomes subarray Sum Equals K 
         hashmap = {}
         ans = prefix = 0
