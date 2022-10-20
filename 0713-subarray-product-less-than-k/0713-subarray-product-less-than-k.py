@@ -3,9 +3,6 @@ class Solution:
         ans = l = 0
         prefix = 1
         
-        if k <= 1:
-            return 0
-        
         for r, num in enumerate(nums):
             prefix *= num
             while l < r and prefix >= k:
