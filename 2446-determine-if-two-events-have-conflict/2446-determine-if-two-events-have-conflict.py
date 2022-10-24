@@ -1,5 +1,6 @@
 class Solution:
     def haveConflict(self, event1: List[str], event2: List[str]) -> bool:
+        
         def convert(event):
             return int(event[:2])*60 + int(event[-2:])
         
