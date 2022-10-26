@@ -1,26 +1,17 @@
 class Solution:
     def checkSubarraySum(self, nums: List[int], k: int) -> bool:
-        if len(nums) < 2: return False
-        if k == 1: return True
+        running = previous = 0
+        seen = set()
         
-        seen = {0:-1}
-        prefix = 0
-        
-        for i, num in enumerate(nums):
-            prefix += num
+        for num in nums:
+            running += num
+            running %= k
             
-            if num == 0:
-                if i >= 1 and nums[i-1] == 0: return True
-                else: continue
+            if running in seen:
+                return True
             
-            m = 1
-            while m*k <= prefix:
-                needed = prefix - m * k
-                if needed in seen and i - seen[needed] >= 2:
-                    return True
-                else: m += 1
+            seen.add(previous)
+            previous = running
             
-            seen[prefix] = i
-        
         return False
             
