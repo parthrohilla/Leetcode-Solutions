@@ -48,11 +48,10 @@ class Solution:
         base = exclude_edge(-1)
         critical, pseudoCritical = set(), set()
         for i in range(len(edges)):
-            mst_exclude = exclude_edge(i)
-            if mst_exclude > base:
+            if exclude_edge(i) > base:
                 critical.add(edges[i][3])
             else:
-                if base == include_edge(i):
+                if include_edge(i) == base:
                     pseudoCritical.add(edges[i][3])
                     
         return [list(critical), list(pseudoCritical)]
