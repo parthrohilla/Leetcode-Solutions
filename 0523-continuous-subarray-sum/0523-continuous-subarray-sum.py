@@ -2,9 +2,10 @@ class Solution:
     def checkSubarraySum(self, nums: List[int], k: int) -> bool:
         if len(nums) < 2: return False
         if k == 1: return True
-        seen = {}
-        seen[0] = -1
+        
+        seen = {0:-1}
         prefix = 0
+        
         for i, num in enumerate(nums):
             prefix += num
             
@@ -18,6 +19,8 @@ class Solution:
                 if needed in seen and i - seen[needed] >= 2:
                     return True
                 else: m += 1
+            
             seen[prefix] = i
+        
         return False
             
