@@ -32,7 +32,8 @@ class Solution:
         for _,v in temp:
             ans.append(v)
         
-        return ans
+        return sorted(freq.keys(), key = lambda x : (freq[x],x))
+    
         
         
         
