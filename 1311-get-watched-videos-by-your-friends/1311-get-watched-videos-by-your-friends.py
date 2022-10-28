@@ -7,7 +7,7 @@ class Solution:
         visited = set()
         visited.add(id)
         current_level = 0
-        while q:
+        while q and current_level < level:
             k = len(q)
             for _ in range(k):
                 node = q.popleft()
@@ -16,8 +16,6 @@ class Solution:
                         q.append(nei)
                         visited.add(nei)
             current_level += 1
-            if current_level == level:
-                break
         
         while q:
             node = q.popleft()
