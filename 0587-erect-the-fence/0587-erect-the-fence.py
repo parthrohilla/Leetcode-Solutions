@@ -6,17 +6,10 @@ class Solution:
             x3, y3 = p3
             return (y3-y2)*(x2-x1) - (y2-y1)*(x3-x2)
         
-        points = sorted(trees)
-        
-        upper  = []
-        lower = []
-        for point in points:
-            while len(lower) >= 2 and cmp(lower[-2], lower[-1], point) < 0:
-                lower.pop()
-            
-            while len(upper) >= 2 and cmp(upper[-2], upper[-1], point) > 0:
-                upper.pop()
-            
+        upper, lower  = [], []
+        for point in sorted(trees):
+            while len(lower) >= 2 and cmp(lower[-2], lower[-1], point) < 0: lower.pop()
+            while len(upper) >= 2 and cmp(upper[-2], upper[-1], point) > 0: upper.pop()
             lower.append(tuple(point))
             upper.append(tuple(point))
             
