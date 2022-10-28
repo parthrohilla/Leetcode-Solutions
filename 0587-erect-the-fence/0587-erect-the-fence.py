@@ -11,10 +11,10 @@ class Solution:
         upper  = []
         lower = []
         for point in points:
-            while len(lower) >= 2 and cmp(lower[-2], lower[-1], point) > 0:
+            while len(lower) >= 2 and cmp(lower[-2], lower[-1], point) < 0:
                 lower.pop()
             
-            while len(upper) >= 2 and cmp(upper[-2], upper[-1], point) < 0:
+            while len(upper) >= 2 and cmp(upper[-2], upper[-1], point) > 0:
                 upper.pop()
             
             lower.append(tuple(point))
