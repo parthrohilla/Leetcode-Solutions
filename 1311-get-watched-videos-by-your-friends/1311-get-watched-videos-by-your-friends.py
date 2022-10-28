@@ -1,11 +1,8 @@
 class Solution:
     def watchedVideosByFriends(self, watchedVideos: List[List[str]], friends: List[List[int]], id: int, level: int) -> List[str]:
-        n = len(watchedVideos)
-        q = deque([id])
+        n, q = len(watchedVideos), deque([id])
         
-        freq = {}
-        visited = set()
-        visited.add(id)
+        freq, visited = {}, set([id])
         current_level = 0
         while q and current_level < level:
             k = len(q)
