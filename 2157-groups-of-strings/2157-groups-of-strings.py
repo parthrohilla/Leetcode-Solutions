@@ -2,6 +2,7 @@ class DSU:
     def __init__(self, n):
         self.parent = [x for x in range(n)]
         self.sizes = [1]*n
+        self.combined = 0
     
     def find(self, x):
         if self.parent[x] == x: return x
@@ -14,6 +15,7 @@ class DSU:
         self.parent[y] = x
         self.sizes[x] += self.sizes[y]
         self.sizes[y] = 0
+        self.combined += 1
         
 class Solution:
     def groupStrings(self, words: List[str]) -> List[int]:
@@ -33,7 +35,4 @@ class Solution:
                     seen[after_removing_set] = i
             seen[bitset] = i
         
-        for i in range(len(words)):
-            dsu.find(i)
-        
-        return [len(set(dsu.parent)), max(dsu.sizes)]
+        return [len(words) - dsu.combined, max(dsu.sizes)]
