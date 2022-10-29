@@ -15,11 +15,11 @@ class Solution:
                 break
         
         ans = []
-        def euler(x):
+        def euler_path(x):
             while adj[x]:
-                euler(adj[x].pop())
+                euler_path(adj[x].pop())
             ans.append(x)
         
-        euler(start)
+        euler_path(start)
         ans = ans[::-1]
         return [ [ans[i], ans[i+1]] for i in range(len(ans)-1) ]
