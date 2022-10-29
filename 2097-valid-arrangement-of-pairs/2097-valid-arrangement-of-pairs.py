@@ -1,16 +1,16 @@
 class Solution:
     def validArrangement(self, pairs: List[List[int]]) -> List[List[int]]:
         adj = defaultdict(list)
-        degrees = defaultdict(int)
+        out_degrees = defaultdict(int)
         
         for u, v in pairs:
             adj[u].append(v)
-            degrees[u] += 1
-            degrees[v] -= 1
+            out_degrees[u] += 1
+            out_degrees[v] -= 1
         
         start = pairs[0][0]
-        for node in degrees.keys():
-            if degrees[node] == 1:
+        for node in out_degrees.keys():
+            if out_degrees[node] == 1:
                 start = node
                 break
         
