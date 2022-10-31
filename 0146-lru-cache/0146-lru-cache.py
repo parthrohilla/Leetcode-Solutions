@@ -15,7 +15,7 @@ class LRUCache:
         self.head.right = self.tail
         self.tail.left = self.head
         
-    def insert(self, node):
+    def insert(self, node): 
         previousNode = self.tail.left
         nextNode = self.tail
         previousNode.right = nextNode.left = node
