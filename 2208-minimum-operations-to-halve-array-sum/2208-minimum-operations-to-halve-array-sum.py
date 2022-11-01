@@ -1,16 +1,13 @@
 class Solution:
     def halveArray(self, nums: List[int]) -> int:
-        heap = []
-        for x in nums:
-            heapq.heappush(heap, -x)
+        heap = [-x for x in nums]
+        heapq.heapify(heap)
         
-        total = sum(heap)
-        op = 0
-        reduced = 0
-        while reduced < -total/2:
+        total, reductions, reduced_sum = sum(heap), 0, 0
+        while reduced_sum < -total/2:
             biggest = heapq.heappop(heap)
             heapq.heappush(heap, biggest/2)
-            reduced += (-biggest/2)
-            op += 1
+            reduced_sum += (-biggest/2)
+            reductions += 1
             
-        return op
+        return reductions
