@@ -24,4 +24,5 @@ class Solution:
             if t % patience[i] == 0: temp = (2*t - patience[i])
             else: temp = (2*t - t % patience[i])
             res = max(res, temp)
+        
         return res + 1
