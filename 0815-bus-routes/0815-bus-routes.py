@@ -1,13 +1,14 @@
 class Solution:
     def numBusesToDestination(self, routes: List[List[int]], source: int, target: int) -> int:
+        # Create Adjaceny List for Stop : [Buses that travel through that stop]
         G = defaultdict(list)
         for i, stops in enumerate(routes):
             for stop in stops:
                 G[stop].append(i)
-        
+        # BFS Traversal 
         Q = deque()
         Q.append([source,0])
-        travelled = set()
+        travelled_route = set()
         
         while Q:
             stop, buses_taken = Q.popleft()
@@ -16,10 +17,10 @@ class Solution:
                 return buses_taken
             
             for bus in G[stop]:
-                if bus not in travelled:
+                if bus not in travelled_route:
                     for s in routes[bus]:
                         Q.append([s, buses_taken+1])
-                    travelled.add(bus)
+                    travelled_route.add(bus)
                 
         return -1
                 
