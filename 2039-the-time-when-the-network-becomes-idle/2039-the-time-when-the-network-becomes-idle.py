@@ -21,7 +21,6 @@ class Solution:
         res = 0
         for i in range(1,n):
             t = 2 * time[i]
-            temp = 0
             if t % patience[i] == 0: temp = (2*t - patience[i])
             else: temp = (2*t - t % patience[i])
             res = max(res, temp)
