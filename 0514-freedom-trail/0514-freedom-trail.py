@@ -30,4 +30,4 @@ class Solution:
                 Q.append([i+1, rotations + 1, found])
                 Q.append([i-1, rotations + 1, found])
         
-        return 0
+        return -1
