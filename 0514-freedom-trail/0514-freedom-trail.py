@@ -1,9 +1,7 @@
 class Solution:
     def findRotateSteps(self, ring: str, key: str) -> int:
-        n = len(ring)   
-        Q = deque()
+        n, Q, visited = len(ring), deque(), set()
         Q.append([0,0,0]) #[node, rotations, current_index]
-        visited = set()
         
         while Q:
             i, rotations, current = Q.popleft()
