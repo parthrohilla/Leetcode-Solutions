@@ -1,33 +1,33 @@
 class Solution:
     def findRotateSteps(self, ring: str, key: str) -> int:
-        n = len(ring)
-            
+        n = len(ring)   
         Q = deque()
-        Q.append([0,0,0]) #[node, rotations, found_word]
+        Q.append([0,0,0]) #[node, rotations, current_index]
         visited = set()
         
         while Q:
-            i, rotations, found = Q.popleft()
+            i, rotations, current = Q.popleft()
             
-            if (i, found) in visited:
+            if (i, current) in visited:
                 continue
             
-            visited.add((i,found))
+            visited.add((i,current))
             
-            while found < len(key) and key[found] == ring[i]:
-                found += 1
+            while current < len(key) and key[current] == ring[i]:
+                current += 1
             
-            if found == len(key):
-                return rotations + len(key)
+            if current == len(key):
+                clicks = len(key)
+                return rotations + clicks
                 
             if i == 0:
-                Q.append([i+1, rotations + 1, found])
-                Q.append([n-1, rotations + 1, found])
+                Q.append([i+1, rotations + 1, current])
+                Q.append([n-1, rotations + 1, current])
             elif i == n-1:
-                Q.append([i-1, rotations + 1, found])
-                Q.append([0, rotations + 1, found])
+                Q.append([i-1, rotations + 1, current])
+                Q.append([0, rotations + 1, current])
             else:
-                Q.append([i+1, rotations + 1, found])
-                Q.append([i-1, rotations + 1, found])
-        
-        return -1
+                Q.append([i+1, rotations + 1, current])
+                Q.append([i-1, rotations + 1, current])
+                
+                
