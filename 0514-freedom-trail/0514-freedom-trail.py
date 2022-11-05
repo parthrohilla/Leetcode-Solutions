@@ -8,7 +8,6 @@ class Solution:
             # If we have seen the current state already previously, we just avoid reworking on it.
             if (i, current) in visited:
                 continue
-            
             visited.add((i,current))
             # IF the current alligned character is equal to key we increment current index until duplicate adjacent characters are there
             # Think of any key where adjacent characters are equal like "aaaaabbbcde", so if we are already alligned at "a", we don't need to rotate 
