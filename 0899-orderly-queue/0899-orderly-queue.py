@@ -5,7 +5,6 @@ class Solution:
         
         smallest = s
         for i in range(1,len(s)):
-            temp = s[i:] + s[:i]
-            smallest = min(smallest, temp)
+            smallest = min(smallest, s[i:] + s[:i])
         
         return smallest
