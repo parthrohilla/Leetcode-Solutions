@@ -3,8 +3,9 @@ class Solution:
         forbidden = set(forbidden)
         Q = deque()
         Q.append([0,0,True])
+        visited = set()
         threshold = max(forbidden) + x + a + b
-        visited = {(0,True)}
+        
         while Q:
             curr, steps, flag = Q.popleft()
             
@@ -15,7 +16,7 @@ class Solution:
                 Q.append([curr+a, steps+1, False])
                 visited.add((curr+a, False))
             
-            if curr - b > 0 and (curr - b) not in forbidden and (curr - b, flag) not in visited and not flag:
+            if curr - b >= 0 and (curr - b) not in forbidden and (curr - b, flag) not in visited and not flag:
                 Q.append([curr-b,steps + 1,True])
                 visited.add((curr-b, True))
                          
