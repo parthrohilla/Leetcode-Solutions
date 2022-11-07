@@ -4,23 +4,21 @@ class Solution:
         
         forbidden = set(forbidden)
         Q = deque()
-        Q.append([0,0])
+        Q.append([0,0,True])
         threshold = max(forbidden) + x + a + b
-        visited = {0}
+        visited = {(0,True)}
         while Q:
-            curr, steps = Q.popleft()
-            if (curr + a) not in visited and (curr + a) not in forbidden and (curr + a) <= threshold:
-                if curr + a  == x: return steps + 1
-                Q.append([curr+a, steps+1])
-                visited.add(curr+a)
+            curr, steps, flag = Q.popleft()
             
-            if curr - b > 0 and (curr - b) not in forbidden and (curr - b ) not in visited:
-                if curr - b == x: return steps + 1
-                visited.add(curr-b)
-                
-                if (curr +a - b) not in visited and (curr + a - b) not in forbidden and (curr+a-b) <= threshold:
-                    if curr +a - b == x: return steps + 2
-                    visited.add(curr+a-b)
-                    Q.append([curr + a - b, steps + 2])
+            if curr == x:
+                return steps
             
+            if (curr + a, False) not in visited and (curr + a) not in forbidden and (curr + a) <= threshold:
+                Q.append([curr+a, steps+1, False])
+                visited.add((curr+a, False))
+            
+            if curr - b > 0 and (curr - b) not in forbidden and (curr - b, flag) not in visited and not flag:
+                Q.append([curr-b,steps + 1,True])
+                visited.add((curr-b, True))
+                         
         return -1
