@@ -13,6 +13,7 @@ class Solution:
             for i in range(4):
                 digit = int(curr[i])
                 for d in [-1,1]:
+                    # -1 % 10 = (-1*10 + 9) % 10 = 9
                     new_digit = (digit + d) % 10
                     new_state = curr[:i] + str(new_digit) + curr[i+1:]
                     if new_state not in visited:
