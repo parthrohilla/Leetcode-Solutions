@@ -2,7 +2,6 @@ class Solution:
     def minimumOperations(self, nums: List[int], start: int, goal: int) -> int:
         seen = [False]*1001
         Q = deque()
-        
         Q.append([start,0])
         seen[start] = True
         
@@ -11,7 +10,9 @@ class Solution:
             
             for n in nums:
                 new_states = [curr + n, curr - n, curr ^ n]
+                
                 for S in new_states:
+                    
                     if S == goal:
                         return operations + 1
                     
