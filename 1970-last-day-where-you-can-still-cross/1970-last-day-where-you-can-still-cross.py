@@ -11,37 +11,32 @@ class Solution:
             if x == y: return
             parent[y] = x
             
-        parent = {}
+        parent, seen = {}, set()
         for i in range(row):
             for j in range(col):
                 parent[(i,j)] = (i,j)
         
         left, right = -1, -2
-        parent[left] = left
-        parent[right] = right
+        parent[left], parent[right] = left, right
         directions = [[-1,0], [1,0], [0,-1], [0,1], [-1,1], [1,1], [-1,-1], [1,-1]]
-        seen = set()
         
         for t, (x,y) in enumerate(cells):
-            y -= 1
             x -= 1
+            y -= 1
             
             for dx, dy in directions:
                 i, j = x + dx, y + dy
                 
-                if 0 <= i < row:
-                    if 0 <= j < col:
-                        if (i,j) in seen:
-                            union((i,j), (x,y))
+                if i in range(row):
+                    if j in range(col):
+                        if (i,j) in seen: union((i,j), (x,y))
                     else:
-                        if j == -1:
-                            union((x,y), left)
-                        if j == col:
-                            union((x,y), right)
-                            
+                        if j == -1: union((x,y), left)
+                        if j == col: union((x,y), right)
+                # If left and right Parts are connected then we can't move from top to bottom            
                 if find(left) == find(right):
                     return t
-                
+            # Adding the flooded cells     
             seen.add((x,y))
                 
         return t
