@@ -16,7 +16,7 @@ class Solution:
                 Q.append([curr+a, steps+1, False])
                 visited.add((curr+a, False))
             
-            if (curr - b) >= 0 and (curr - b) not in forbidden and (curr - b, True) not in visited and not flag:
+            if (curr - b, True) not in visited and (curr - b) not in forbidden and not flag and (curr - b) >= 0 :
                 Q.append([curr-b,steps + 1,True])
                 visited.add((curr-b, True))
                          
