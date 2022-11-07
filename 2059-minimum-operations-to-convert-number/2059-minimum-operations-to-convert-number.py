@@ -1,7 +1,6 @@
 class Solution:
     def minimumOperations(self, nums: List[int], start: int, goal: int) -> int:
-        seen = [False]*1001
-        Q = deque()
+        seen, Q = [False]*1001, deque()
         Q.append([start,0])
         seen[start] = True
         
