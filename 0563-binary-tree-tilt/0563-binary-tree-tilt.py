@@ -11,5 +11,4 @@ class Solution:
             left, sumL = dfs(node.left)
             right, sumR = dfs(node.right)
             return [left + right + abs(sumL - sumR), node.val + sumL + sumR]
-        
         return dfs(root)[0]
