@@ -12,8 +12,7 @@ class Solution:
             while stack and len(stack) >= 2 and abs(ord(stack[-1]) - ord(stack[-2])) == K:
                 stack.pop()
                 stack.pop()
-   
-
+                
         return "".join(stack)
             
         
