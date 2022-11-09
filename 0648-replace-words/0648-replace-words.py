@@ -1,12 +1,10 @@
 class Solution:
     def replaceWords(self, dictionary: List[str], sentence: str) -> str:
         S = sentence.split()
-        
-        dictionary.sort(key = lambda x: len(x))
-        print(dictionary)
+        D = sorted(dictionary, key = lambda x: len(x))
         for index, word in enumerate(S):
-            for d in dictionary:
-                if d == word[:len(d)]:
-                    S[index] = d
+            for key in D:
+                if key == word[:len(key)]:
+                    S[index] = key
                     break
         return " ".join(S)
