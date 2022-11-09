@@ -12,12 +12,12 @@ class StockSpanner:
                 self.stack.append([price,1])
                 return 1
             else:
-                temp = 1
+                span = 1
                 while self.stack and self.stack[-1][0] <= price:
-                    temp += self.stack[-1][1]
+                    span += self.stack[-1][1]
                     self.stack.pop()
-                self.stack.append([price,temp])
-                return temp
+                self.stack.append([price,span])
+                return span
 
 
 # Your StockSpanner object will be instantiated and called as such:
