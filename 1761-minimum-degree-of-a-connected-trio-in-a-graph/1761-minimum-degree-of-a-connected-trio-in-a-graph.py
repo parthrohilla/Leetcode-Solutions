@@ -5,10 +5,10 @@ class Solution:
         
         for u,v in edges:
             u, v = u-1, v-1
+            G[u][v] = G[v][u] = True
             deg[u] += 1
             deg[v] += 1
-            G[u][v] = True
-            G[v][u] = True
+            
             
         ans = math.inf
         for i in range(n):
