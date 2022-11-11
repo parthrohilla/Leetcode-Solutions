@@ -2,9 +2,7 @@ class Solution:
     def makeIntegerBeautiful(self, n: int, target: int) -> int:
         N = n
         base = 1
-        
-        def SUM_of_DIGITS(num):
-            return sum(map(int,str(num)))
+        SUM_of_DIGITS = lambda num : sum(map(int,str(num)))
         
         while SUM_of_DIGITS(N) > target:
             N = (N // 10 + 1)
