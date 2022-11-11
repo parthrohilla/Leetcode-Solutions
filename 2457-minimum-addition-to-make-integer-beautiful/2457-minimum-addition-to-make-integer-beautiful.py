@@ -3,10 +3,10 @@ class Solution:
         N = n
         base = 1
         
-        def helper(num):
+        def SUM_of_DIGITS(num):
             return sum(map(int,str(num)))
         
-        while helper(N) > target:
+        while SUM_of_DIGITS(N) > target:
             N = (N // 10 + 1)
             base *= 10
         
