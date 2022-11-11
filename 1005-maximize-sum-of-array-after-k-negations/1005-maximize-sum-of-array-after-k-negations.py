@@ -9,12 +9,6 @@ class Solution:
                 nums[i] *= -1
                 k -= 1
             else:
-                if k % 2 == 0:
-                    return sum(nums)
-                else:
-                    return sum(nums) - 2*min(map(abs,nums))
+                break
         
-        if k % 2 == 1:
-            return sum(nums) - 2*min(nums)
-        else:
-            return sum(nums)
+        return sum(nums) - ( k % 2) * 2 *min(nums)
