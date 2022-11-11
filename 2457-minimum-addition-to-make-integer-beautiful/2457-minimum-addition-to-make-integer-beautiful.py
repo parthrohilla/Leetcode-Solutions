@@ -2,6 +2,7 @@ class Solution:
     def makeIntegerBeautiful(self, n: int, target: int) -> int:
         N = n
         base = 1
+        
         def helper(num):
             return sum(map(int,list(str(num))))
         
