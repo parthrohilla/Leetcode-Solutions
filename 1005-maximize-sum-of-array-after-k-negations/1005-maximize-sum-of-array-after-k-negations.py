@@ -8,4 +8,5 @@ class Solution:
             else:
                 nums[i] *= -1
                 k -= 1
+        
         return sum(nums) - ( k % 2) * 2 *min(nums)
