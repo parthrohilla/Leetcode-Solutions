@@ -7,7 +7,6 @@ class Solution:
         while B >= 0:
             ways += (B+1)
             A += 1
-            
             B = (total - A*cost1) // cost2
             
         return ways
