@@ -16,10 +16,8 @@ class Solution:
         
         rows, cols = defaultdict(list), defaultdict(list)
         for i,j in stones:
-            if rows[i]:
-                union((i,j), rows[i][0])
-            if cols[j]:
-                union((i,j), cols[j][0])
+            if rows[i]: union((i,j), rows[i][0])
+            if cols[j]: union((i,j), cols[j][0])
             rows[i].append((i,j))
             cols[j].append((i,j))
 
