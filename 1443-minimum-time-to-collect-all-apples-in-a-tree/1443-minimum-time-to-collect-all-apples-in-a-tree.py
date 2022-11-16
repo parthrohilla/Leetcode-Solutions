@@ -7,15 +7,14 @@ class Solution:
             
         self.cost = 0
         visited = set()
-        def dfs(node):
-            if node in visited: return False
-            visited.add(node)
+        def dfs(node, parent):
             found = False
             for nei in G[node]:
-                if dfs(nei):
-                    found = True
-                    self.cost += 2
+                if nei != parent:
+                    if dfs(nei, node):
+                        found = True
+                        self.cost += 2
             return found or hasApple[node]
         
-        dfs(0)
+        dfs(0, -1)
         return self.cost
