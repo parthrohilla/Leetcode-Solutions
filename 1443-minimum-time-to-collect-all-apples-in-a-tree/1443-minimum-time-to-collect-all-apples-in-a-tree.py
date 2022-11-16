@@ -6,7 +6,6 @@ class Solution:
             G[v].append(u)
             
         self.cost = 0
-        visited = set()
         def dfs(node, parent):
             found = False
             for nei in G[node]:
@@ -16,5 +15,5 @@ class Solution:
                         self.cost += 2
             return found or hasApple[node]
         
-        dfs(0, -1)
+        dfs(0,-1)
         return self.cost
