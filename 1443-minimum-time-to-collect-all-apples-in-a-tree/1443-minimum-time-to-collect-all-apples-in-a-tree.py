@@ -9,10 +9,9 @@ class Solution:
         def dfs(node, parent):
             found = False
             for child in G[node]:
-                if child != parent:
-                    if dfs(child, node):
-                        found = True
-                        self.cost += 2
+                if child != parent and dfs(child, node):
+                    found = True
+                    self.cost += 2
             return found or hasApple[node]
         
         dfs(0,-1)
