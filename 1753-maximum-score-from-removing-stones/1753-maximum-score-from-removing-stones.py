@@ -5,4 +5,4 @@ class Solution:
         if S[2] > S[0] + S[1]: 
             return S[0] + S[1]
         else:
-            return sum(S)//2
+            return S[2] + ((S[0]+S[1])-S[2]) // 2
