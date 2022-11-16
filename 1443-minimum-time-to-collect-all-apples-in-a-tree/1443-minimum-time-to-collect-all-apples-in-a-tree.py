@@ -8,9 +8,9 @@ class Solution:
         self.cost = 0
         def dfs(node, parent):
             found = False
-            for nei in G[node]:
-                if nei != parent:
-                    if dfs(nei, node):
+            for child in G[node]:
+                if child != parent:
+                    if dfs(child, node):
                         found = True
                         self.cost += 2
             return found or hasApple[node]
