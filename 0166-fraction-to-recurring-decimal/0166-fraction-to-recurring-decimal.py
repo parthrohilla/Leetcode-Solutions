@@ -8,8 +8,7 @@ class Solution:
         if N*D < 0:
             ans += "-"
         
-        N = abs(N)
-        D = abs(D)
+        N, D = abs(N), abs(D)
         
         q = N // D
         ans += str(q)
