@@ -22,6 +22,7 @@ class Solution:
         seen = {}
         
         while rem != 0:
+            
             if rem in seen:
                 i = seen[rem]
                 return (ans[:i] + "(" + ans[i:] + ")")
