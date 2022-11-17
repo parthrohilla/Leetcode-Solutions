@@ -24,7 +24,7 @@ class Solution:
             
             if left == "covering" or right == "covering":
                 return "covered"
-            
+
         return (dfs(root)=='to_be_covered') + self.cameras
             
             
