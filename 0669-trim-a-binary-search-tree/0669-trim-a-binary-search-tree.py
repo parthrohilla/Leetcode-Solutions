@@ -9,11 +9,15 @@ class Solution:
         
         def dfs(node):
             if not node: return
+            
             L, R = dfs(node.left), dfs(node.right)
+            
             if node.val < low: return R
             elif node.val > high: return L
+            
             node.left = L
             node.right = R
+            
             return node
 
         return dfs(root)
