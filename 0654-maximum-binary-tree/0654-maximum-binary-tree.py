@@ -6,13 +6,10 @@
 #         self.right = right
 class Solution:
     def constructMaximumBinaryTree(self, nums: List[int]) -> Optional[TreeNode]:
-        
         def dfs(A):
             if not A: return None
             i, num = max(enumerate(A), key = lambda x: x[1])
-            L = dfs(A[:i])
-            R = dfs(A[i+1:])
-            root = TreeNode(num, L, R)
+            root = TreeNode(num, dfs(A[:i]), dfs(A[i+1:]))
             return root
         
         return dfs(nums)
