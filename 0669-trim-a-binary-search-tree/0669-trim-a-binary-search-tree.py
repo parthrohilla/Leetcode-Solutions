@@ -15,8 +15,7 @@ class Solution:
             if node.val < low: return R
             elif node.val > high: return L
             
-            node.left = L
-            node.right = R
+            node.left, node.right = L, R
             
             return node
 
