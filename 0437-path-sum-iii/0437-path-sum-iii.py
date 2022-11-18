@@ -8,21 +8,17 @@ class Solution:
     def pathSum(self, root: Optional[TreeNode], targetSum: int) -> int:
         self.ans = 0
         
-        def dfs(node, S, parent_taken):
-            if not node:
-                return
+        def dfs(node, S):
+            if not node:return
+            if S + node.val == targetSum: self.ans += 1
+            dfs(node.left, S + node.val)
+            dfs(node.right, S + node.val)
             
-            if node.val + S == targetSum:
-                self.ans += 1
-            
-            if parent_taken:
-                dfs(node.left, S + node.val, parent_taken)
-                dfs(node.right, S + node.val, parent_taken)
-            else:
-                dfs(node.left, S + node.val, True)
-                dfs(node.right, S + node.val, True)
-                dfs(node.left, S, False)
-                dfs(node.right, S, False)
+        def dfs_starter(node):
+            if not node: return
+            dfs(node, 0)
+            dfs_starter(node.left)
+            dfs_starter(node.right)
         
-        dfs(root, 0, False)
+        dfs_starter(root)
         return self.ans
