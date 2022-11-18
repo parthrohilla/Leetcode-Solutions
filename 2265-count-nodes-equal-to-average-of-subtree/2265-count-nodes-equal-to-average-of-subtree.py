@@ -16,9 +16,10 @@ class Solution:
             S = leftSum + rightSum + node.val
             N = leftNodes + rightNodes + 1
             Avg = S // N
+            
             if Avg == node.val:
-                self.ans += 1
-                
+                self.ans += 1   
+            
             return [S,N]
         
         dfs(root)
