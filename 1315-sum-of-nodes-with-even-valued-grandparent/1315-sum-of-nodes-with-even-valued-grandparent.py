@@ -10,8 +10,7 @@ class Solution:
         
         def dfs(node):
             if not node: return
-            if node.val % 2 == 0:
-                addGrandChildren(node)
+            if node.val % 2 == 0: addGrandChildren(node)
             dfs(node.left)
             dfs(node.right)
         
