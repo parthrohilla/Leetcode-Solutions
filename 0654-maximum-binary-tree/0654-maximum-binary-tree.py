@@ -11,6 +11,5 @@ class Solution:
             i, num = max(enumerate(A), key = lambda x: x[1])
             root = TreeNode(num, dfs(A[:i]), dfs(A[i+1:]))
             return root
-        
         return dfs(nums)
         
