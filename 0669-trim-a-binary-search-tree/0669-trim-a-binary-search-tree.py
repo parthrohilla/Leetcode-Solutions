@@ -6,16 +6,14 @@
 #         self.right = right
 class Solution:
     def trimBST(self, root: Optional[TreeNode], low: int, high: int) -> Optional[TreeNode]:
+        
         def dfs(node):
-            if not node: return 
-            
-            if node.val < low:
-                return dfs(node.right)
-            elif node.val > high:
-                return dfs(node.left)
-            else:
-                node.left = dfs(node.left)
-                node.right = dfs(node.right)
+            if not node: return
+            L, R = dfs(node.left), dfs(node.right)
+            if node.val < low: return R
+            elif node.val > high: return L
+            node.left = L
+            node.right = R
             return node
 
         return dfs(root)
