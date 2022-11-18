@@ -12,7 +12,6 @@ class Solution:
             i, num = largest(A)
             L = dfs(A[:i])
             R = dfs(A[i+1:])
-            
             root = TreeNode(num, L, R)
             return root
         
