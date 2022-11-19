@@ -21,10 +21,8 @@ class Solution:
             parent[u] = u
             total[u] = nums[u]
             self.maxSegment = max(self.maxSegment, total[u])
-            if u-1 in parent:
-                union(u,u-1)
-            if u+1 in parent:
-                union(u,u+1)
+            if u-1 in parent: union(u,u-1)
+            if u+1 in parent: union(u,u+1)
             
         ans = [0]*len(nums)
         for i in range(len(nums)-1, -1, -1):
