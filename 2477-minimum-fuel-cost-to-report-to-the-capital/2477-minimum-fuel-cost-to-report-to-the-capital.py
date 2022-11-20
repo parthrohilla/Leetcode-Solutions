@@ -6,13 +6,13 @@ class Solution:
             G[v].append(u)
         
         def dfs(u,parent):
-            passengers = 1
+            total_passengers = 1
             for v in G[u]:
                 if v != parent:
-                    small = dfs(v,u)
-                    self.cost += (small + seats - 1) // seats
-                    passengers += small
-            return passengers
+                    passengers = dfs(v,u)
+                    self.cost += (passengers + seats - 1) // seats
+                    total_passengers += passengers
+            return total_passengers
                     
         self.cost = 0
         dfs(0,-1)
