@@ -1,7 +1,6 @@
 class Solution:
     def calPoints(self, operations: List[str]) -> int:
         stack = []
-        print("2".isdigit())
         for c in operations:
             if c.isdigit() or c[1:].isdigit(): stack.append(int(c))
             if c == "+": stack.append(stack[-1] +stack[-2])
