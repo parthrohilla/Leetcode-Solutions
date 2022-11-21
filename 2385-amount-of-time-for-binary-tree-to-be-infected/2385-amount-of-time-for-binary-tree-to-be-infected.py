@@ -28,8 +28,8 @@ class Solution:
         infected, time = {start}, 0
         
         while Q:
-            __ = len(Q)
-            for _ in range(__):
+            K = len(Q)
+            for _ in range(K):
                 node = Q.popleft()
                 for nei in G[node]:
                     if nei not in infected:
