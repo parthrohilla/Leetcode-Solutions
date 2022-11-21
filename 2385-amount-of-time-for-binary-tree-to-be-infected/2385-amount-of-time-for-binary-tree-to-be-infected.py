@@ -6,7 +6,7 @@
 #         self.right = right
 class Solution:
     def amountOfTime(self, root: Optional[TreeNode], start: int) -> int:
-
+        # Build Graph 
         def build_graph(node):
             if not node: return
             
@@ -23,10 +23,9 @@ class Solution:
         G = defaultdict(list)
         build_graph(root)
         
-        Q = deque()
-        Q.append(start)
-        infected = {start}
-        time = 0
+        # BFS Implementation
+        Q = deque([start])
+        infected, time = {start}, 0
         
         while Q:
             K = len(Q)
