@@ -24,17 +24,13 @@ class Solution:
         G = defaultdict(list)
         build_graph(root)
         
-        Q = deque()
-        Q.append(target.val)
-        level = 0
-        visited = {target.val}
+        # BFS
+        Q = deque([target.val])
+        level, visited = 0, {target.val}
         
         while Q:
             S = len(Q)
-            
-            if level == k:
-                return list(Q)
-            
+            if level == k: return list(Q)
             for _ in range(S):
                 node = Q.popleft()
                 for nei in G[node]:
