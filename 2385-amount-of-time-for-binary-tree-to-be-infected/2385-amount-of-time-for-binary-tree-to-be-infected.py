@@ -22,7 +22,7 @@ class Solution:
                 build(node.right)
 
         build(root)
-        print(G)
+        
         Q = deque()
         Q.append(start)
         infected = {start}
