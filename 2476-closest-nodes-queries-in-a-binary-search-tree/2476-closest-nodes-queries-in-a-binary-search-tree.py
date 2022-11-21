@@ -6,11 +6,12 @@
 #         self.right = right
 class Solution:
     def closestNodes(self, root: Optional[TreeNode], queries: List[int]) -> List[List[int]]:
+        
         def inorder(node):
-            if not node: return
-            inorder(node.left)
-            A.append(node.val)
-            inorder(node.right)
+            if node:
+                inorder(node.left)
+                A.append(node.val)
+                inorder(node.right)
         
         A = []
         inorder(root)
