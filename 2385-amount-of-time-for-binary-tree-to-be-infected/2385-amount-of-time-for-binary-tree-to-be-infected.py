@@ -6,22 +6,22 @@
 #         self.right = right
 class Solution:
     def amountOfTime(self, root: Optional[TreeNode], start: int) -> int:
-        G = defaultdict(list)
-        
-        def build(node):
+
+        def build_graph(node):
             if not node: return
             
             if node.left:
                 G[node.val].append(node.left.val)
                 G[node.left.val].append(node.val)
-                build(node.left)
+                build_graph(node.left)
                 
             if node.right:
                 G[node.val].append(node.right.val)
                 G[node.right.val].append(node.val)
-                build(node.right)
-
-        build(root)
+                build_graph(node.right)
+        
+        G = defaultdict(list)
+        build_graph(root)
         
         Q = deque()
         Q.append(start)
