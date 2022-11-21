@@ -13,10 +13,9 @@ class Solution:
                 A.append(node.val)
                 inorder(node.right)
         
-        A = []
+        A, ans = [], []
         inorder(root)
         N = len(A)
-        ans = []
         
         for q in queries:
             i = bisect_left(A,q)
