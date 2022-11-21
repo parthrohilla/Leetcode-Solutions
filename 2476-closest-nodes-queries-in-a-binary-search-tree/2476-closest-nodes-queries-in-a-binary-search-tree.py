@@ -8,10 +8,7 @@ class Solution:
     def closestNodes(self, root: Optional[TreeNode], queries: List[int]) -> List[List[int]]:
         
         def inorder(node):
-            if node:
-                inorder(node.left)
-                A.append(node.val)
-                inorder(node.right)
+            if node: inorder(node.left), A.append(node.val), inorder(node.right)
         
         A, ans = [], []
         inorder(root)
