@@ -6,9 +6,7 @@
 #         self.right = right
 class Solution:
     def widthOfBinaryTree(self, root: Optional[TreeNode]) -> int:        
-        Q, width = deque(), 0
-        Q.append([0,root])
-        
+        Q, width = deque([[0,root]]), 0
         while Q:
             k = len(Q)
             width = max(width, Q[-1][0] - Q[0][0] + 1)
