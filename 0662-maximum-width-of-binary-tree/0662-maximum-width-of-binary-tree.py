@@ -16,8 +16,7 @@ class Solution:
             for _ in range(k):
                 i, node = Q.popleft()
                 if node.left: Q.append([2*i+1,node.left])
-                if node.right: Q.append([2*i+2, node.right])
-                    
+                if node.right: Q.append([2*i+2, node.right])            
         return ans
 
         
