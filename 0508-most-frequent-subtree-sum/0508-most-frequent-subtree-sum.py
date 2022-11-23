@@ -6,17 +6,17 @@
 #         self.right = right
 class Solution:
     def findFrequentTreeSum(self, root: Optional[TreeNode]) -> List[int]:
-        seen = []
+        seen = defaultdict(int)
         
         def dfs(node):
             if not node: return 0
             S = dfs(node.left) + node.val + dfs(node.right)
-            seen.append(S)
+            seen[S] += 1
             return S
         
         dfs(root)
-        A, Count = defaultdict(list), Counter(seen)
-        for K,V in Count.items():
+        A = defaultdict(list)
+        for K,V in seen.items():
             A[V].append(K)
             
         return A[max(A.keys())]
