@@ -15,9 +15,9 @@ class Solution:
             return S
         
         dfs(root)
-        temp = defaultdict(list)
-        C = Counter(seen)
-        for K,V in C.items():
-            temp[V].append(K)
+        A = defaultdict(list)
+        Count = Counter(seen)
+        for K,V in Count.items():
+            A[V].append(K)
             
-        return temp[max(temp.keys())]
+        return A[max(A.keys())]
