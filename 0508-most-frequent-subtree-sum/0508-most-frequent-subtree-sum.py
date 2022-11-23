@@ -15,8 +15,7 @@ class Solution:
             return S
         
         dfs(root)
-        A = defaultdict(list)
-        Count = Counter(seen)
+        A, Count = defaultdict(list), Counter(seen)
         for K,V in Count.items():
             A[V].append(K)
             
