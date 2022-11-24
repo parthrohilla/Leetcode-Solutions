@@ -1,10 +1,10 @@
 class Solution:
     def maxDistance(self, colors: List[int]) -> int:
-        @lru_cache(None)
-        def dfs(A):
-            ans = 0
-            if len(A) > 1 and A[0] != A[-1]: ans = max(ans, len(A)-1)
-            else: ans = max(ans, dfs(A[:-1]), dfs(A[1:]))
-            return ans
-        return dfs(tuple(colors))
+        self.ans = 0
+        
+        for i,c in enumerate(colors):
+            if c != colors[-1]: self.ans = max(self.ans, len(colors) - i - 1)
+            if c != colors[0]: self.ans = max(self.ans, i)
+        
+        return self.ans
     
