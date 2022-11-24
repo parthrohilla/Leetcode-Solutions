@@ -19,8 +19,7 @@ class Solution:
         
         i, j, k, carry = A, B, C, 0
         while i or j:
-            X = i.val if i else 0
-            Y = j.val if j else 0
+            X, Y = i.val if i else 0, j.val if j else 0
             S = X + Y + carry
             carry = S // 10
             k.next = ListNode(S % 10)
