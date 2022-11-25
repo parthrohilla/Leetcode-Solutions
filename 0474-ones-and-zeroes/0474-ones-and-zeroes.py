@@ -1,16 +1,14 @@
 class Solution:
     def findMaxForm(self, strs: List[str], m: int, n: int) -> int:
+        xy = [[s.count("0"), s.count("1")] for s in strs]
+        
         @lru_cache(None)
         def dfs(index, ones, zeros):
-            if index == len(strs): return 0
-            
-            C = Counter(strs[index])
-            pick, ignore = -1, -1
-            
-            if ones + C["1"] <= n and zeros + C["0"] <= m:
-                pick = 1 + dfs(index + 1, ones + C["1"], zeros + C["0"])
+            if index >= len(strs): return 0
+            pick = -1
             ignore = dfs(index + 1, ones, zeros)
-            
+            z,o = xy[index]
+            if ones + o <= n and zeros + z <= m:
+                pick = 1 + dfs(index + 1, ones + o, zeros + z)
             return max(pick, ignore)
-        
         return dfs(0,0,0)
